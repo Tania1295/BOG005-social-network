@@ -1,5 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import  {welcome} from './lib/welcome.js';
 
-myFunction();
+
+const rootDiv = document.getElementById("root");
+// rootDiv.innerHTML = `<h1>Bienvenid@</h1> <a href="#login">Ingresar</a>`;
+welcome(window.location.welcome);
+
