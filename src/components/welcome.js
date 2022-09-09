@@ -10,12 +10,18 @@ export const welcome = () => {
   const buttonLoginGoogle = document.createElement('button');
   const buttonSignUp = document.createElement('button');
 
-  imageLogo.src = './components/Logo-red-social.png';
+  buttonLogin.className = "buttons";
+  buttonLoginGoogle.className = "buttons";
+  buttonSignUp.className = "buttons";
+  title.className = "title";
+  container.className = "containerWelcome";
+
+  imageLogo.src = './Logo-red-social.png';
   imageLogo.alt = 'Imagen';
   imageLogo.className = 'logoRed';
   title.textContent = 'Travelers';
   slogan.textContent = 'Sitio para compartir tus experiencias por el mundo.';
-  buttonLogin.textContent = 'Ingresar con correo electrónico';
+  buttonLogin.textContent = 'Ingresar con correo';
   buttonLoginGoogle.textContent = 'Ingresar con Google';
   registerText.textContent = '¿No tienes una cuenta?';
   buttonSignUp.textContent = 'Regístrate.';
