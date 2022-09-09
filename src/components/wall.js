@@ -2,17 +2,21 @@ import { onNavigate } from '../main.js';
 
 export const wall = () => {
   const container = document.createElement('section');
+
   const header = document.createElement('header');
+
   const user = document.createElement('h2');
-  const buttonClose = document.createElement('button');
-  const message = document.createElement('article');
-  const messageText = document.createElement('textarea');
-
   user.textContent = 'Nombre Apellidos';
-  buttonClose.textContent = 'Cerrar Sesión';
-  messageText.textContent = 'Escribe aquí tu post';
 
-  messageText.className = "textUser"
+  const buttonClose = document.createElement('button');
+  buttonClose.textContent = 'Cerrar Sesión';
+  buttonClose.className = 'buttons';
+
+  const message = document.createElement('article');
+
+  const messageText = document.createElement('textarea');
+  messageText.textContent = 'Escribe aquí tu post';
+  messageText.className = 'textUser';
 
   buttonClose.addEventListener('click', () => {
     onNavigate('/');

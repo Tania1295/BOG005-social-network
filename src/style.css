@@ -5,55 +5,120 @@
 * {
     font-family: 'Gluten', cursive;
     font-family: 'Work Sans', sans-serif;
-    margin: 5px;
+    line-height: 1.6em;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     color: #100720;
 }
 
-body{
-    background-image: url(./components/Logo-red-social.png);
+html {
+    scroll-behavior: smooth;
 }
 
-.containerWelcome{
-    background-color: #F77E21;
+body {
+    margin: 1%;
 }
 
-.containerLogin{
-    background-color: #d9d9d9;
-    opacity: 0.8;
+h1 {
+    font-family: 'Gluten', cursive;
+    font-weight: 900;
+    font-size: 2.9em;
 }
 
-.containerRegister{
-    background-color: #d9d9d9;
-    opacity: 0.8;
+h3 {
+    font-family: 'Work Sans', sans-serif;
 }
 
-.buttons{
+p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium
+}
+
+img {
+    max-width: 100%;
+}
+
+input {
+    width: 22em;
+    padding: 0.5em;
+    border-radius: 1em;
+    border-color: #ffff;
+}
+
+.buttons {
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    margin: 0.8em;
+    padding: 0.8em;
     background-color: #ffff;
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 1.2em;
     border-color: #ffff;
 }
 
-.title{
-    font-size: 40px;
-    font-family: 'Gluten';
+/* Welcome */
+.containerWelcome {
+    background-color: #F77E21;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-p{
-    font-size: small;
+.logoRed {
+    height: 10em;
+    width: 12em;
 }
 
-input{
-    width: 6cm;
-    padding: 5px;
-    border-radius: 5px;
-    border-color: #ffff;
+.buttonSignUp {
+    display: inline-block;
+    list-style-type: none;
+    background-color: #F77E21;
+    border: 0;
+    font-size: medium;
 }
 
-.textUser{
+.buttonSignUp:hover,
+.buttonSignUp:active {
+    color: #fff;
+    border-bottom: 0.1em solid #fff;
+    cursor: pointer;
+}
+
+.registerText {
+    display: inline-block;
+}
+
+/* Login */
+.containerLogin {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(217, 217, 217, 0.392),rgba(217, 217, 217, 0.392)), /*Si se quita está línea se quita la capa del degradado*/
+                        url(./img/Logo-red-social.png)
+                        no-repeat
+                        center center
+                        fixed;
+    background-size: contain;
+}
+
+/* Register */
+.containerRegister {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(217, 217, 217, 0.392),rgba(217, 217, 217, 0.392)), /*Si se quita está línea se quita la capa del degradado*/
+                        url(./img/Logo-red-social.png)
+                        no-repeat
+                        center center
+                        fixed;
+    background-size: contain;
+}
+
+/* Wall */
+.textUser {
     width: 8cm;
     padding: 50px;
     padding-top: 1px;

@@ -2,28 +2,36 @@ import { onNavigate } from '../main.js';
 
 export const welcome = () => {
   const container = document.createElement('section');
+  container.className = 'containerWelcome';
+
   const imageLogo = document.createElement('img');
-  const title = document.createElement('h1');
-  const slogan = document.createElement('p');
-  const registerText = document.createElement('p');
-  const buttonLogin = document.createElement('button');
-  const buttonLoginGoogle = document.createElement('button');
-  const buttonSignUp = document.createElement('button');
-
-  buttonLogin.className = "buttons";
-  buttonLoginGoogle.className = "buttons";
-  buttonSignUp.className = "buttons";
-  title.className = "title";
-  container.className = "containerWelcome";
-
-  imageLogo.src = './Logo-red-social.png';
-  imageLogo.alt = 'Imagen';
+  imageLogo.src = './img/Logo-red-social.png';
+  imageLogo.alt = 'Imagen logo Travelers';
   imageLogo.className = 'logoRed';
+
+  const title = document.createElement('h1');
   title.textContent = 'Travelers';
+  title.className = 'title';
+
+  const slogan = document.createElement('p');
   slogan.textContent = 'Sitio para compartir tus experiencias por el mundo.';
-  buttonLogin.textContent = 'Ingresar con correo';
-  buttonLoginGoogle.textContent = 'Ingresar con Google';
+
+  const registerText = document.createElement('p');
   registerText.textContent = '¿No tienes una cuenta?';
+
+  const buttonLogin = document.createElement('button');
+  buttonLogin.textContent = 'Ingresar con correo';
+  buttonLogin.className = 'buttons';
+
+  const orText = document.createElement('p');
+  orText.textContent = 'o';
+
+  const buttonLoginGoogle = document.createElement('button');
+  buttonLoginGoogle.textContent = 'Ingresar con Google';
+  buttonLoginGoogle.className = 'buttons';
+
+  const buttonSignUp = document.createElement('button');
+  buttonSignUp.className = 'buttonSignUp';
   buttonSignUp.textContent = 'Regístrate.';
 
   buttonLogin.addEventListener('click', () => {
@@ -38,6 +46,7 @@ export const welcome = () => {
     title,
     slogan,
     buttonLogin,
+    orText,
     buttonLoginGoogle,
     registerText,
     buttonSignUp,
