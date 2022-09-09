@@ -10,7 +10,7 @@ export const welcome = () => {
   const buttonLoginGoogle = document.createElement('button');
   const buttonSignUp = document.createElement('button');
 
-  imageLogo.src = './Logo-red-social.png';
+  imageLogo.src = './components/Logo-red-social.png';
   imageLogo.alt = 'Imagen';
   imageLogo.className = 'logoRed';
   title.textContent = 'Travelers';
