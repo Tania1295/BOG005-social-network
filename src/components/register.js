@@ -14,6 +14,11 @@ export const register = () => {
   const userText = document.createElement('p');
   const passwordText = document.createElement('p');
 
+  buttonSign.className = "buttons";
+  buttonBack.className = "buttons";
+  title.className = "title";
+  container.className = "containerRegister";
+
   buttonSign.textContent = 'Registrarme';
   buttonBack.textContent = 'Regresar';
   title.textContent = 'Travelers';

@@ -12,6 +12,8 @@ export const wall = () => {
   buttonClose.textContent = 'Cerrar Sesión';
   messageText.textContent = 'Escribe aquí tu post';
 
+  messageText.className = "textUser"
+
   buttonClose.addEventListener('click', () => {
     onNavigate('/');
   });
