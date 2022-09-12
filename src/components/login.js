@@ -12,6 +12,7 @@ export const login = () => {
   subTitle.className = 'subTitle';
   subTitle.textContent = 'Por el mundo';
 
+  const formLogin = document.createElement('form');
   const buttonEnter = document.createElement('button');
   buttonEnter.textContent = 'Iniciar Sesion';
   buttonEnter.className = 'buttons';
@@ -21,8 +22,11 @@ export const login = () => {
   buttonBack.textContent = 'Regresar';
 
   const inputEmail = document.createElement('input');
+  inputEmail.setAttribute('required', '');
 
   const inputPassword = document.createElement('input');
+  inputPassword.setAttribute('required', '');
+  inputPassword.type = 'password';
 
   const emailText = document.createElement('p');
   emailText.textContent = 'Escribe tu correo:';
@@ -33,19 +37,24 @@ export const login = () => {
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
-  buttonEnter.addEventListener('click', () => {
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
     onNavigate('/wall');
   });
 
   container.append(
     title,
     subTitle,
+    formLogin,
+    buttonBack,
+  );
+
+  formLogin.append(
     emailText,
     inputEmail,
     passwordText,
     inputPassword,
     buttonEnter,
-    buttonBack,
   );
   return container;
 };

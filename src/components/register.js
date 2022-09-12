@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { auth } from '../lib/firebase.js';
 
 export const register = () => {
   const container = document.createElement('section');
@@ -12,6 +13,8 @@ export const register = () => {
   subTitle.className = 'subTitle';
   subTitle.textContent = 'Por el mundo';
 
+  const formRegister = document.createElement('form');
+
   const buttonSign = document.createElement('button');
   buttonSign.className = 'buttons';
   buttonSign.textContent = 'Registrarme';
@@ -23,6 +26,7 @@ export const register = () => {
   const inputEmail = document.createElement('input');
   inputEmail.type = 'email';
   inputEmail.placeholder = 'Correo Electrónico';
+  inputEmail.setAttribute('id', 'emailSignup');
 
   const inputName = document.createElement('input');
   inputName.type = 'text';
@@ -35,6 +39,7 @@ export const register = () => {
   const inputPassword = document.createElement('input');
   inputPassword.type = 'password';
   inputPassword.placeholder = 'Contraseña';
+  inputPassword.setAttribute('id', 'passwordSignup');
 
   const emailText = document.createElement('p');
   emailText.textContent = 'Escribe tu correo:';
@@ -48,16 +53,30 @@ export const register = () => {
   const passwordText = document.createElement('p');
   passwordText.textContent = 'Contraseña';
 
-  buttonSign.addEventListener('click', () => {
-    onNavigate('/wall');
+  formRegister.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('emailSignup').value;
+    const password = document.getElementById('passwordSignup').value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log('Se registró');
+      });
+    /*     onNavigate('/wall'); */
   });
 
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
+
   container.append(
     title,
     subTitle,
+    formRegister,
+    buttonBack,
+  );
+
+  formRegister.append(
     nameText,
     inputName,
     emailText,
@@ -67,7 +86,7 @@ export const register = () => {
     passwordText,
     inputPassword,
     buttonSign,
-    buttonBack,
   );
+
   return container;
 };
