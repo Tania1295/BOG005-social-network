@@ -4,11 +4,9 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
-  /*   signInWithEmailAndPassword,
-  
-    , */
+  signInWithEmailAndPassword,
+  signOut,
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
-// import { register } from '../components/register.js';
 // import { getFirestore } from 'firebase/firestore';
 
 const firebaseApp = initializeApp({
@@ -24,6 +22,10 @@ const firebaseApp = initializeApp({
 export const auth = getAuth(firebaseApp);
 
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+
+export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+
+export const loginOut = signOut(auth);
 
 // const db = getFirestore(firebaseApp);
 
