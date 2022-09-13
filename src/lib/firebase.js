@@ -21,9 +21,11 @@ const firebaseApp = initializeApp({
 
 export const auth = getAuth(firebaseApp);
 
-export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const createUser = (email, password) =>
+  createUserWithEmailAndPassword(auth, email, password);
 
-export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const loginUser = (email, password) =>
+  signInWithEmailAndPassword(auth, email, password);
 
 export const loginOut = signOut(auth);
 

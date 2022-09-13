@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { loginOut } from '../lib/firebase.js';
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -18,7 +19,10 @@ export const wall = () => {
   messageText.textContent = 'Escribe aquí tu post';
   messageText.className = 'textUser';
 
-  buttonClose.addEventListener('click', () => {
+  buttonClose.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginOut();
+    console.log(loginOut);
     onNavigate('/');
   });
 

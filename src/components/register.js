@@ -62,13 +62,12 @@ export const register = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode)
-        if (errorCode === "auth/email-already-in-use") {
-       errorText.textContent = "Este correo ya se encuentra registrado";
-        } else if (errorCode === "auth/weak-password") {
-          errorText.textContent = "La contraseña debe tener al menos 6 carácteres";
-        } else if (errorCode === "auth/invalid-email") {
-          errorText.textContent = "El correo es inválido";
+        if (errorCode === 'auth/email-already-in-use') {
+          errorText.textContent = 'Este correo ya se encuentra registrado';
+        } else if (errorCode === 'auth/weak-password') {
+          errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorText.textContent = 'El correo es inválido';
         }
       });
   });
@@ -97,4 +96,3 @@ export const register = () => {
 
   return container;
 };
-
