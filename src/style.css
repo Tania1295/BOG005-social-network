@@ -49,6 +49,7 @@ input {
 .buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
     margin: 0.8em;
     padding: 0.8em;
     background-color: #ffff;
@@ -101,6 +102,15 @@ input {
                         center center
                         fixed;
     background-size: contain;
+}
+
+#errorText { 
+    background-color: #ff0000;
+    color: #fff;
+}
+
+#formLogin {
+    justify-content: center;
 }
 
 /* Register */

@@ -32,7 +32,7 @@ export const loginOut = signOut(auth);
 // const db = getFirestore(firebaseApp);
 
 onAuthStateChanged(auth, (user) => {
-  if (user !== null) {
+  if (user != null) {
     console.log('Logged in!');
   } else {
     console.log('No User');

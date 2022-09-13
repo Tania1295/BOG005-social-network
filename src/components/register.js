@@ -50,6 +50,7 @@ export const register = () => {
   passwordText.textContent = 'Contraseña';
 
   const errorText = document.createElement('p');
+  errorText.setAttribute('id', 'errorText');
 
   formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -72,7 +73,8 @@ export const register = () => {
       });
   });
 
-  buttonBack.addEventListener('click', () => {
+  buttonBack.addEventListener('click', (e) => {
+    e.preventDefault();
     onNavigate('/');
   });
 

@@ -1,81 +1,83 @@
-import { onNavigate } from "../main.js";
-import { loginUser } from "../lib/firebase.js";
+import { onNavigate } from '../main.js';
+import { loginUser } from '../lib/firebase.js';
 
 export const login = () => {
-	const container = document.createElement("section");
-	container.className = "containerLogin";
+  const container = document.createElement('section');
+  container.className = 'containerLogin';
 
-	const title = document.createElement("h1");
-	title.className = "title";
-	title.textContent = "Travelers";
+  const title = document.createElement('h1');
+  title.className = 'title';
+  title.textContent = 'Travelers';
 
-	const subTitle = document.createElement("h3");
-	subTitle.className = "subTitle";
-	subTitle.textContent = "Por el mundo";
+  const subTitle = document.createElement('h3');
+  subTitle.className = 'subTitle';
+  subTitle.textContent = 'Por el mundo';
 
-	const formLogin = document.createElement("form");
-	const buttonEnter = document.createElement("button");
-	buttonEnter.textContent = "Iniciar Sesion";
-	buttonEnter.className = "buttons";
+  const formLogin = document.createElement('form');
+  formLogin.setAttribute('id', 'formLogin');
 
-	const inputEmail = document.createElement("input");
-	inputEmail.setAttribute("required", "");
-	inputEmail.setAttribute("id", "emailLogin");
+  const buttonEnter = document.createElement('button');
+  buttonEnter.textContent = 'Iniciar Sesion';
+  buttonEnter.className = 'buttons';
 
-	const emailText = document.createElement("p");
-	emailText.textContent = "Escribe tu correo:";
+  const inputEmail = document.createElement('input');
+  inputEmail.setAttribute('required', '');
+  inputEmail.setAttribute('id', 'emailLogin');
 
-	const inputPassword = document.createElement("input");
-	inputPassword.setAttribute("required", "");
-	inputPassword.type = "password";
-	inputPassword.setAttribute("id", "passwordLogin");
+  const emailText = document.createElement('p');
+  emailText.textContent = 'Escribe tu correo:';
 
-	const passwordText = document.createElement("p");
-	passwordText.textContent = "Escribe tu contraseña:";
+  const inputPassword = document.createElement('input');
+  inputPassword.setAttribute('required', '');
+  inputPassword.type = 'password';
+  inputPassword.setAttribute('id', 'passwordLogin');
 
-	const buttonBack = document.createElement("button");
-	buttonBack.className = "buttons";
-	buttonBack.textContent = "Regresar";
+  const passwordText = document.createElement('p');
+  passwordText.textContent = 'Escribe tu contraseña:';
 
-	const errorText = document.createElement("p");
+  const buttonBack = document.createElement('button');
+  buttonBack.className = 'buttons';
+  buttonBack.textContent = 'Regresar';
 
-	buttonBack.addEventListener("click", (e) => {
-		e.preventDefault();
-		onNavigate("/");
-	});
+  const errorText = document.createElement('p');
+  errorText.setAttribute('id', 'errorText');
 
-	formLogin.addEventListener("submit", (e) => {
-		e.preventDefault();
-		const email = document.getElementById("emailLogin").value;
-		const password = document.getElementById("passwordLogin").value;
+  buttonBack.addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/');
+  });
 
-		loginUser(email, password)
-			.then((userCredential) => {
-				onNavigate("/wall");
-			})
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('emailLogin').value;
+    const password = document.getElementById('passwordLogin').value;
 
-			.catch((error) => {
-				const errorCode = error.code;
-				console.log(errorCode);
-				if (errorCode === "auth/wrong-password") {
-					errorText.textContent = "La contraseña ingresada es erronea";
-				} else if (errorCode === "auth/weak-password") {
-					errorText.textContent =
-						"La contraseña debe tener al menos 6 carácteres";
-				} else if (errorCode === "auth/invalid-email") {
-					errorText.textContent = "El correo es inválido";
-				}
-			});
-	});
+    loginUser(email, password)
+      .then((userCredential) => {
+        onNavigate('/wall');
+      })
 
-	container.append(title, subTitle, formLogin, errorText, buttonBack);
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        if (errorCode === 'auth/wrong-password') {
+          errorText.textContent = 'La contraseña ingresada es erronea';
+        } else if (errorCode === 'auth/weak-password') {
+          errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorText.textContent = 'El correo es inválido';
+        }
+      });
+  });
 
-	formLogin.append(
-		emailText,
-		inputEmail,
-		passwordText,
-		inputPassword,
-		buttonEnter
-	);
-	return container;
+  container.append(title, subTitle, formLogin, errorText, buttonBack);
+
+  formLogin.append(
+    emailText,
+    inputEmail,
+    passwordText,
+    inputPassword,
+    buttonEnter,
+  );
+  return container;
 };

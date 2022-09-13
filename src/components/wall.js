@@ -21,12 +21,13 @@ export const wall = () => {
 
   buttonClose.addEventListener('click', (e) => {
     e.preventDefault();
-    loginOut();
-    console.log(loginOut);
-    onNavigate('/');
+    loginOut.then(() => {
+      onNavigate('/');
+      console.log('Log outtt');
+    });
   });
 
-  container.append(header, user, buttonClose, message, messageText);
+  container.append(header, user, message, messageText, buttonClose);
 
   return container;
 };
