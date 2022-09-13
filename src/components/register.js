@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { auth } from '../lib/firebase.js';
+import {createUser} from '../lib/firebase.js';
 
 export const register = () => {
   const container = document.createElement('section');
@@ -58,11 +58,13 @@ export const register = () => {
     const email = document.getElementById('emailSignup').value;
     const password = document.getElementById('passwordSignup').value;
 
-    auth.createUserWithEmailAndPassword(email, password)
+    createUser(email, password) 
       .then((userCredential) => {
-        console.log('Se registró');
+        onNavigate('/wall');
+      })
+      .catch((error) => {
+        
       });
-    /*     onNavigate('/wall'); */
   });
 
   buttonBack.addEventListener('click', () => {
@@ -90,3 +92,4 @@ export const register = () => {
 
   return container;
 };
+
