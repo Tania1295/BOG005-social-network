@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { loginOut } from '../lib/firebase.js';
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -19,10 +20,13 @@ export const wall = () => {
   messageText.className = 'textUser';
 
   buttonClose.addEventListener('click', () => {
-    onNavigate('/');
-  });
+    loginOut.then(() => {
+      console.log("saliste")
+      onNavigate('/');
+    })
+});
 
-  container.append(header, user, buttonClose, message, messageText);
+container.append(header, user, buttonClose, message, messageText);
 
-  return container;
+return container;
 };

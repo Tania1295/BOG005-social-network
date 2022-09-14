@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginUser, loginOut } from '../lib/firebase.js';
+import { loginUser } from '../lib/firebase.js';
 
 export const login = () => {
   const container = document.createElement('section');
@@ -14,12 +14,12 @@ export const login = () => {
   subTitle.textContent = 'Por el mundo';
 
   const formLogin = document.createElement('form');
+  formLogin.className = 'loginContainer';
   const buttonEnter = document.createElement('button');
   buttonEnter.textContent = 'Iniciar Sesion';
   buttonEnter.className = 'buttons';
 
   const buttonBack = document.createElement('button');
-  buttonBack.className = 'buttons';
   buttonBack.textContent = 'Regresar';
 
   const inputEmail = document.createElement('input');
@@ -39,11 +39,8 @@ export const login = () => {
 
   buttonBack.addEventListener('click', (e) => {
     e.preventDefault()
-    loginOut()
-      console.log(loginOut);
-      onNavigate('/');
-   
-    
+   onNavigate('/');
+  
   });
   formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -57,13 +54,10 @@ export const login = () => {
 
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode)
-        if (errorCode === "auth/email-already-in-use") {
-       errorText.textContent = "Este correo ya se encuentra registrado";
-        } else if (errorCode === "auth/weak-password") {
-          errorText.textContent = "La contraseña debe tener al menos 6 carácteres";
-        } else if (errorCode === "auth/invalid-email") {
-          errorText.textContent = "El correo es inválido";
+        if (errorCode === 'auth/wrong-password') {
+          errorText.textContent = 'La contraseña ingresada es erronea';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorText.textContent = 'El correo es inválido';
         }
       });
   });

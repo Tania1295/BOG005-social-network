@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { popUp, provider } from '../lib/firebase.js';
 
 export const welcome = () => {
   const container = document.createElement('section');
@@ -15,6 +16,7 @@ export const welcome = () => {
 
   const slogan = document.createElement('p');
   slogan.textContent = 'Sitio para compartir tus experiencias por el mundo.';
+  slogan.className = 'slogan';
 
   const registerText = document.createElement('p');
   registerText.textContent = '¿No tienes una cuenta?';
@@ -37,6 +39,17 @@ export const welcome = () => {
   buttonLogin.addEventListener('click', () => {
     onNavigate('/login');
   });
+
+  buttonLoginGoogle.addEventListener('click', () => {
+    popUp(provider)
+    .then((result) => {
+      onNavigate('/wall');
+  }) .catch((error) => {
+   // const errorCode = error.code;
+    // const errorMessage = error.message;
+  });
+  });
+
   buttonSignUp.addEventListener('click', () => {
     onNavigate('/register');
   });
