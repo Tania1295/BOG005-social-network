@@ -24,9 +24,11 @@ const firebaseApp = initializeApp({
 
 export const auth = getAuth(firebaseApp);
 
-export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const createUser = (email, password) =>
+  createUserWithEmailAndPassword(auth, email, password);
 
-export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const loginUser = (email, password) =>
+  signInWithEmailAndPassword(auth, email, password);
 
 export const loginOut = signOut(auth);
 
@@ -37,7 +39,7 @@ export const popUp = signInWithPopup(auth);
 // const db = getFirestore(firebaseApp);
 
 onAuthStateChanged(auth, (user) => {
-  if (user !== null) {
+  if (user != null) {
     console.log('Logged in!');
   } else {
     console.log('No User');

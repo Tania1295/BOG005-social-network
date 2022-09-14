@@ -113,6 +113,15 @@ input {
     background-size: contain;
 }
 
+#errorText { 
+    background-color: #ff0000;
+    color: #fff;
+}
+
+#formLogin {
+    justify-content: center;
+}
+
 /* Register */
 .containerRegister {
     display: flex;

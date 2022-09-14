@@ -26,13 +26,13 @@ export const login = () => {
   inputEmail.setAttribute('required', '');
   inputEmail.setAttribute('id', 'emailLogin');
 
+  const emailText = document.createElement('p');
+  emailText.textContent = 'Escribe tu correo:';
+
   const inputPassword = document.createElement('input');
   inputPassword.setAttribute('required', '');
   inputPassword.type = 'password';
   inputPassword.setAttribute('id', 'passwordLogin');
-
-  const emailText = document.createElement('p');
-  emailText.textContent = 'Escribe tu correo:';
 
   const passwordText = document.createElement('p');
   passwordText.textContent = 'Escribe tu contraseña:';
@@ -42,11 +42,12 @@ export const login = () => {
    onNavigate('/');
   
   });
+
   formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('emailLogin').value;
     const password = document.getElementById('passwordLogin').value;
-    
+
     loginUser(email, password)
       .then((userCredential) => {
         onNavigate('/wall');
@@ -62,12 +63,7 @@ export const login = () => {
       });
   });
 
-  container.append(
-    title,
-    subTitle,
-    formLogin,
-    buttonBack,
-  );
+  container.append(title, subTitle, formLogin, errorText, buttonBack);
 
   formLogin.append(
     emailText,
