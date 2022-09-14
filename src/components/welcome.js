@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { popUp, provider } from '../lib/firebase.js';
+import { popUp } from '../lib/firebase.js';
 
 export const welcome = () => {
   const container = document.createElement('section');
@@ -40,14 +40,14 @@ export const welcome = () => {
     onNavigate('/login');
   });
 
-  buttonLoginGoogle.addEventListener('click', () => {
-    popUp(provider)
-    .then((result) => {
+  buttonLoginGoogle.addEventListener('click', (e) => {
+    e.preventDefault()
+   popUp.then((result) => {
       onNavigate('/wall');
   }) .catch((error) => {
    // const errorCode = error.code;
     // const errorMessage = error.message;
-  });
+  }); 
   });
 
   buttonSignUp.addEventListener('click', () => {

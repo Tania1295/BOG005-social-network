@@ -63,7 +63,7 @@ export const login = () => {
       });
   });
 
-  container.append(title, subTitle, formLogin, errorText, buttonBack);
+  container.append(title, subTitle, formLogin, buttonBack);
 
   formLogin.append(
     emailText,
