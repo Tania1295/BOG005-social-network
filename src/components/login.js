@@ -59,6 +59,8 @@ export const login = () => {
           errorText.textContent = 'La contraseña ingresada es erronea';
         } else if (errorCode === 'auth/invalid-email') {
           errorText.textContent = 'El correo es inválido';
+        } else if (errorCode === 'auth/user-not-found') {
+          errorText.textContent = 'Usuario no encontrado';
         }
       });
   });
