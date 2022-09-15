@@ -10,7 +10,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
-
+import config from './config.js';
 // import { getFirestore } from 'firebase/firestore';
 
 

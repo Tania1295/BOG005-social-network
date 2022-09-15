@@ -114,8 +114,8 @@ input {
     background-size: contain;
 }
 
-#errorText {
-    background-color: #ff0000;
+#errorText { 
+    background-color: #f34a4a;
     color: #fff;
 }
 
