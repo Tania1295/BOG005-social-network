@@ -11,7 +11,7 @@ const routes = {
   '/register': register,
   '/wall': wall,
 };
-export const onNavigate = (pathname) => {
+const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -28,3 +28,5 @@ window.onpopstate = () => {
 };
 
 rootSection.appendChild(component());
+
+export {onNavigate};

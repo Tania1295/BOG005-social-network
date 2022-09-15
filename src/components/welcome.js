@@ -49,13 +49,13 @@ export const welcome = () => {
   });
 
   buttonLoginGoogle.addEventListener('click', () => {
-   popUp()
-   .then((result) => {
-      onNavigate('/wall');
-  }) .catch((error) => {
-   // const errorCode = error.code;
-    // const errorMessage = error.message;
-  }); 
+    popUp()
+      .then(() => {
+        onNavigate('/wall');
+      }).catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+      });
   });
 
   buttonSignUp.addEventListener('click', () => {
@@ -77,7 +77,7 @@ export const welcome = () => {
     buttonSignUp,
   );
 
-  
+
 
   return container;
 };

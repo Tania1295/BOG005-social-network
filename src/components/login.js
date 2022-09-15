@@ -37,10 +37,12 @@ export const login = () => {
   const passwordText = document.createElement('p');
   passwordText.textContent = 'Escribe tu contraseña:';
 
+  const errorText = document.createElement('p');
+  errorText.setAttribute('id', 'errorText');
+
   buttonBack.addEventListener('click', (e) => {
-    e.preventDefault()
-   onNavigate('/');
-  
+    e.preventDefault();
+    onNavigate('/');
   });
 
   formLogin.addEventListener('submit', (e) => {
