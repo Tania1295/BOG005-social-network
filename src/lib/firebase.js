@@ -14,26 +14,23 @@ import config from './config.js';
 // import { getFirestore } from 'firebase/firestore';
 
 
-
 const app = initializeApp(config);
 
 const auth = getAuth();
 
- const createUser = (email, password) =>
-  createUserWithEmailAndPassword(auth, email, password);
+const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-const loginUser = (email, password) =>
-  signInWithEmailAndPassword(auth, email, password);
+const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
- const loginOut = signOut(auth);
+const loginOut = signOut(auth);
 
- const provider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
-/*  const popUp = (provider) => 
-signInWithPopup(auth, provider); */
+const popUp = () => signInWithPopup(auth, provider);
 
- export {
-  app, auth, createUser, loginUser, loginOut, provider, signInWithPopup }
+export {
+  app, auth, createUser, loginUser, loginOut, provider, popUp
+}
 // const db = getFirestore(firebaseApp);
 
 onAuthStateChanged(auth, (user) => {
@@ -43,4 +40,3 @@ onAuthStateChanged(auth, (user) => {
     console.log('No User');
   }
 })
- 

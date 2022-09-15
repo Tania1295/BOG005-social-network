@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { signInWithPopup, provider, auth } from '../lib/firebase.js';
+import { popUp } from '../lib/firebase.js';
 
 export const welcome = () => {
   const container = document.createElement('section');
@@ -49,7 +49,7 @@ export const welcome = () => {
   });
 
   buttonLoginGoogle.addEventListener('click', () => {
-   signInWithPopup(auth, provider)
+   popUp()
    .then((result) => {
       onNavigate('/wall');
   }) .catch((error) => {
