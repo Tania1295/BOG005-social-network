@@ -6,6 +6,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  onAuthStateChanged,
 } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
@@ -24,27 +25,30 @@ const firebaseConfig = {
 }
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth();
+const auth = getAuth();
 
-export const createUser = (email, password) =>
+ const createUser = (email, password) =>
   createUserWithEmailAndPassword(auth, email, password);
 
-export const loginUser = (email, password) =>
+const loginUser = (email, password) =>
   signInWithEmailAndPassword(auth, email, password);
 
-export const loginOut = signOut(auth);
+ const loginOut = signOut(auth);
 
-export const provider = new GoogleAuthProvider();
+ const provider = new GoogleAuthProvider();
 
-export const popUp = signInWithPopup(auth, provider);
+/*  const popUp = (provider) => 
+signInWithPopup(auth, provider); */
 
+ export {
+  app, auth, createUser, loginUser, loginOut, provider, signInWithPopup }
 // const db = getFirestore(firebaseApp);
 
-/* onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, (user) => {
   if (user != null) {
     console.log('Logged in!');
   } else {
     console.log('No User');
   }
 })
- */
+ 

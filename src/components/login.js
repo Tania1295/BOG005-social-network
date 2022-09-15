@@ -56,7 +56,7 @@ export const login = () => {
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode === 'auth/wrong-password') {
-          errorText.textContent = 'La contraseña ingresada es erronea';
+          errorText.textContent = 'La contraseña ingresada es errónea';
         } else if (errorCode === 'auth/invalid-email') {
           errorText.textContent = 'El correo es inválido';
         }

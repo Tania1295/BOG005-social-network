@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { popUp } from '../lib/firebase.js';
+import { signInWithPopup, provider, auth } from '../lib/firebase.js';
 
 export const welcome = () => {
   const container = document.createElement('section');
@@ -29,8 +29,16 @@ export const welcome = () => {
   orText.textContent = 'o';
 
   const buttonLoginGoogle = document.createElement('button');
-  buttonLoginGoogle.textContent = 'Ingresar con Google';
-  buttonLoginGoogle.className = 'buttons';
+  buttonLoginGoogle.setAttribute('id', 'buttonGoogle');
+  const divGoogle = document.createElement('div');
+  const textGoogle = document.createElement('p');
+  textGoogle.textContent = 'Ingresar con Google';
+  textGoogle.setAttribute('id', 'textGoogle');
+  const imageGoogle = document.createElement('img');
+  imageGoogle.src = './img/logo-google.png';
+  imageGoogle.alt = 'Google';
+  imageGoogle.className = 'imageGoogle';
+
 
   const buttonSignUp = document.createElement('button');
   buttonSignUp.className = 'buttonSignUp';
@@ -40,9 +48,9 @@ export const welcome = () => {
     onNavigate('/login');
   });
 
-  buttonLoginGoogle.addEventListener('click', (e) => {
-    e.preventDefault()
-   popUp.then((result) => {
+  buttonLoginGoogle.addEventListener('click', () => {
+   signInWithPopup(auth, provider)
+   .then((result) => {
       onNavigate('/wall');
   }) .catch((error) => {
    // const errorCode = error.code;
@@ -54,6 +62,10 @@ export const welcome = () => {
     onNavigate('/register');
   });
 
+  divGoogle.append(imageGoogle, textGoogle);
+  buttonLoginGoogle.appendChild(divGoogle);
+
+
   container.append(
     imageLogo,
     title,
@@ -64,5 +76,8 @@ export const welcome = () => {
     registerText,
     buttonSignUp,
   );
+
+  
+
   return container;
 };
