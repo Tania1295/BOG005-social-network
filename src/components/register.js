@@ -58,7 +58,7 @@ export const register = () => {
     const password = document.getElementById('passwordSignup').value;
 
     createUser(email, password)
-      .then((userCredential) => {
+      .then(() => {
         onNavigate('/wall');
       })
       .catch((error) => {

@@ -15,8 +15,8 @@
     "lint": "eslint src/ test/",
     "lint-fix": "eslint src/ test/ --fix",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "_pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
+    "test": "jest --coverage --env=jsdom",
     "start": "serve -s src/"
   },
   "devDependencies": {

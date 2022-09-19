@@ -52,7 +52,7 @@ export const welcome = () => {
     popUp()
       .then(() => {
         onNavigate('/wall');
-      }).catch((error) => {
+      }).catch(() => {
         // const errorCode = error.code;
         // const errorMessage = error.message;
       });

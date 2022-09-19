@@ -21,7 +21,6 @@ export const wall = () => {
 
   buttonClose.addEventListener('click', () => {
     loginOut.then(() => {
-      console.log("saliste");
       onNavigate('/');
     });
   });

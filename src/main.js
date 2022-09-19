@@ -6,19 +6,22 @@ import { wall } from './components/wall.js';
 const rootSection = document.getElementById('root');
 
 const routes = {
-  '/': welcome,
-  '/login': login,
-  '/register': register,
-  '/wall': wall,
+  '/': welcome(),
+  '/login': login(),
+  '/register': register(),
+  '/wall': wall(),
 };
-const onNavigate = (pathname) => {
+const onNavigate = (pathname, paramRoutes = routes) => {
+  const rootSection = document.getElementById('root');
+  // console.log('pathname: ', pathname);
+  // console.log('objeto: ', paramRoutes[pathname]);
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
-  rootSection.removeChild(rootSection.firstChild);
-  rootSection.appendChild(routes[pathname]());
+  // rootSection.removeChild(rootSection.firstChild);
+  rootSection.replaceChildren(paramRoutes[pathname]);
 };
 const component = routes[window.location.pathname];
 
@@ -26,7 +29,9 @@ window.onpopstate = () => {
   rootSection.removeChild(rootSection.firstChild);
   rootSection.append(component());
 };
-
-rootSection.appendChild(component());
+window.addEventListener("load", ()=>{
+  onNavigate('/')
+})
+// rootSection.appendChild(component);
 
 export {onNavigate};

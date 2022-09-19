@@ -31,4 +31,4 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export {app, auth, createUser, loginUser, loginOut, provider, popUp};
+export {app, createUser, loginUser, loginOut, provider, popUp};

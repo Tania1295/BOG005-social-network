@@ -51,7 +51,7 @@ export const login = () => {
     const password = document.getElementById('passwordLogin').value;
 
     loginUser(email, password)
-      .then((userCredential) => {
+      .then(() => {
         onNavigate('/wall');
       })
 
@@ -75,6 +75,7 @@ export const login = () => {
     passwordText,
     inputPassword,
     buttonEnter,
+    errorText,
   );
   return container;
 };
