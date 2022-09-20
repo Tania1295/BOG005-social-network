@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
 import { loginOut } from '../lib/firebase.js';
+// import { displayName } from '../lib/firebase.js';
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -7,7 +8,8 @@ export const wall = () => {
   const header = document.createElement('header');
 
   const user = document.createElement('h2');
-  user.textContent = 'Nombre Apellidos';
+
+  
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';

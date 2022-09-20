@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
 import { createUser } from '../lib/firebase.js';
+// import { displayName } from '../lib/firebase.js';
 
 export const register = () => {
   const container = document.createElement('section');
@@ -33,6 +34,8 @@ export const register = () => {
   inputName.type = 'text';
   inputName.placeholder = 'Nombre';
   inputName.setAttribute('required', '');
+  inputName.setAttribute('id', 'name');
+  
 
   const inputPassword = document.createElement('input');
   inputPassword.type = 'password';
@@ -77,6 +80,7 @@ export const register = () => {
     e.preventDefault();
     onNavigate('/');
   });
+ 
 
   container.append(
     title,
@@ -97,4 +101,22 @@ export const register = () => {
   );
 
   return container;
-};
+
+  }
+// export { getName };
+
+  //Traemos el nombre del usuario, sin el nombre de usuario las preguntas se bloquean y no se muestran//
+// function getName(){
+//   const name = document.getElementById("name")
+//   if(name){
+//     localStorage.setItem('username', name.value);
+//     page1.style.display="none"
+//     question1.style.display="block"
+//     question2.style.display="block"
+//     question3.style.display="block"
+//     playername.innerHTML="¡Hola, Bienvenida " + name.value + "!"
+//   }
+// }
+// }
+
+

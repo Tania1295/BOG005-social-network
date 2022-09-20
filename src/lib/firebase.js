@@ -20,12 +20,13 @@ const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, p
 const loginOut = signOut(auth);
 const provider = new GoogleAuthProvider();
 const popUp = () => signInWithPopup(auth, provider);
+// let displayName = user.displayName;
 
 // const db = getFirestore(firebaseApp);
 
 onAuthStateChanged(auth, (user) => {
   if (user != null) {
-    console.log('Logged in!');
+    console.log(user);
   } else {
     console.log('No User');
   }
