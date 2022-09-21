@@ -3,11 +3,13 @@
     color3: #D9D9D9 */
 #root {
     height: 100%;
+    background-color: #F77E21;
 }
 
 html {
     scroll-behavior: smooth;
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -62,22 +64,17 @@ input {
     font-weight: 510;
     font-size: 1em;
     cursor: pointer;
+    border: solid black 2px;
 }
 
 /* Welcome */
-.containerWelcome {
-    background-color: #F77E21;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 .logoRed {
     min-height: 100px;
     min-width: 100px;
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 300px;
+    max-width: 300px;
 
 }
 
@@ -136,6 +133,7 @@ input {
 
 }
 
+
 /* este es el div que contiene la imagen y el texto de Google! */
 div {
     margin: 0;
@@ -169,6 +167,47 @@ div {
 
 #formLogin {
     justify-content: center;
+}
+
+.containerWelcome {
+    background-color: #F77E21;
+    height: 90%;
+    width: 90%;
+    margin: auto 20px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+#containerTitle {
+    display: flex;
+    max-width: 400px;
+    min-width: 300px;
+    max-height: 80%;
+    min-height: 40%;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 350px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: auto;
+}
+
+#containerBody {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 /* Register */
