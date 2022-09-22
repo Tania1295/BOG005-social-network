@@ -13,11 +13,15 @@ export const login = () => {
   subTitle.className = 'subTitle';
   subTitle.textContent = 'Por el mundo';
 
+  const containerBackgroundEnd = document.createElement('section');
+  containerBackgroundEnd.className = 'containerBackgroundEnd';
+  const containerBackground = document.createElement('section');
+  containerBackground.className = 'containerBackground';
   const formLogin = document.createElement('form');
   formLogin.className = 'loginContainer';
   const buttonEnter = document.createElement('button');
-  buttonEnter.textContent = 'Iniciar Sesion';
-  buttonEnter.className = 'buttons';
+  buttonEnter.textContent = 'Iniciar sesión';
+  buttonEnter.className = 'buttonEnter';
 
   const buttonBack = document.createElement('button');
   buttonBack.textContent = 'Regresar';
@@ -67,15 +71,18 @@ export const login = () => {
       });
   });
 
-  container.append(title, subTitle, formLogin, buttonBack);
-
-  formLogin.append(
-    emailText,
-    inputEmail,
-    passwordText,
+  container.append(title, subTitle);
+  formLogin.append(emailText, inputEmail, 
+    passwordText, 
     inputPassword,
     buttonEnter,
     errorText,
+    buttonBack);
+containerBackground.append( container,
+  formLogin)
+  containerBackgroundEnd.appendChild(
+    containerBackground
+
   );
-  return container;
+  return containerBackgroundEnd;
 };

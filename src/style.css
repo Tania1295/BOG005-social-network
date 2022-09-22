@@ -2,21 +2,21 @@
     color2: #100720
     color3: #D9D9D9 */
 #root {
-    height: 100%;
     background-color: #F77E21;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-html {
-    scroll-behavior: smooth;
-    height: 100%;
-    margin: 0;
+html, body {
+    height: 100vh;
+    margin: 0px;
+    overflow-x: hidden;
+    padding:0;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
 
 
 .title {
@@ -28,10 +28,17 @@ body {
     text-align: center;
 }
 
-p {
+ p {
     font-family: 'Work Sans', sans-serif;
     font-size: medium;
     margin-top: 20px;
+    
+}
+.loginContainer > p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+    font-weight: 600;
 }
 
 .slogan {
@@ -47,9 +54,9 @@ p {
 
 input {
     width: 22em;
-    padding: 0.5em;
-    border-radius: 1em;
-    border-color: #ffff;
+    padding: 1em;
+    border-radius: 0.5em;
+    border-color: rgba(97, 96, 96, 0.432);
     margin-bottom: 20px;
 }
 
@@ -64,7 +71,7 @@ input {
     font-weight: 510;
     font-size: 1em;
     cursor: pointer;
-    border: solid black 2px;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
 }
 
 /* Welcome */
@@ -81,7 +88,7 @@ input {
 .buttonSignUp {
     display: inline-block;
     list-style-type: none;
-    background-color: #F77E21;
+    background-color: white;
     border: 0;
     font-size: medium;
     font-family: 'Work Sans', sans-serif;
@@ -89,8 +96,8 @@ input {
 }
 
 .buttonSignUp:hover {
-    color: #fff;
-    border-bottom: 0.1em solid #fff;
+    color:#F77E21;
+    border-bottom: 0.1em solid #F77E21;
     cursor: pointer;
 }
 
@@ -125,6 +132,7 @@ input {
     padding: 0.3em;
     margin: 1em;
     cursor: pointer;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
 }
 
 #buttonGoogle:hover {
@@ -144,22 +152,76 @@ div {
 
 /* Login */
 
+#root > .containerBackgroundEnd {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+
+}
+.containerBackground {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.392), rgba(217, 217, 217, 0.392)),
+/*Si se quita está línea se quita la capa del degradado*/
+url(./img/Logo-red-social.png) no-repeat left center fixed;
+align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+margin:0;
+
+}
+
+
+ /* este es el div de form */
 .loginContainer {
-    margin-top: 30px;
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     margin: 20px;
+    padding: 3%;
+    flex-grow: 1;
+    border:none;
+    flex-basis: 200px;
+    background-color:  #ee840cb7;
+    border-radius: 10px;
+
+    
 }
 
 .containerLogin {
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(rgba(217, 217, 217, 0.392), rgba(217, 217, 217, 0.392)),
-        /*Si se quita está línea se quita la capa del degradado*/
-        url(./img/Logo-red-social.png) no-repeat center center fixed;
-    background-size: contain;
     display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 40%;
     flex-direction: column;
+    align-items: center;
+    flex-basis: 200px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 20px;
 }
 
+.buttonEnter {
+    display: flex;
+    margin: 1em;
+    padding: 0.9em;
+    background-color: #ffff;
+    border-radius: 0.4em;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 510;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
+}
 #errorText {
     background-color: #f34a4a;
     color: #fff;
@@ -171,28 +233,26 @@ div {
 
 .containerWelcome {
     background-color: #F77E21;
-    height: 90%;
-    width: 90%;
-    margin: auto 20px;
+  align-items: center;
     display: flex;
-    gap: 5px;
+    gap: 25px;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: auto;
+    margin: 20px;
 }
 
 #containerTitle {
     display: flex;
-    max-width: 400px;
-    min-width: 300px;
+    max-width: 500px;
+    min-width: 350px;
     max-height: 80%;
     min-height: 40%;
     flex-direction: column;
     align-items: center;
-    flex-basis: 350px;
+    flex-basis: 200px;
     flex-grow: 1;
     justify-content: center;
-    margin: auto;
+    margin: 20px;
 }
 
 #containerBody {
@@ -204,10 +264,14 @@ div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin:auto;
+     margin: 20px;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 3%;
+    flex-grow: 1;
+    box-shadow: 4px 4px 10px 0px #333333b7;
+    border:none;
+    flex-basis: 200px;
 }
 
 /* Register */

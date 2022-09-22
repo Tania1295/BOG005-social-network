@@ -13,8 +13,6 @@ const routes = {
 };
 const onNavigate = (pathname, paramRoutes = routes) => {
   const rootSection = document.getElementById('root');
-  // console.log('pathname: ', pathname);
-  // console.log('objeto: ', paramRoutes[pathname]);
   window.history.pushState(
     {},
     pathname,
@@ -27,11 +25,11 @@ const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootSection.removeChild(rootSection.firstChild);
-  rootSection.append(component());
+  rootSection.append(component);
 };
 window.addEventListener("load", ()=>{
   onNavigate('/')
 })
-// rootSection.appendChild(component);
+ rootSection.appendChild(component);
 
 export {onNavigate};
