@@ -153,17 +153,14 @@ div {
 /* Login */
 
 #root > .containerBackgroundEnd {
-    height: 100vh;
+    height: 115vh;
     width: 100%;
-    background-color: white;
-
+    background-color: #F77E21;
+    /* linear-gradient(rgba(255, 255, 255, 0.392), rgba(217, 217, 217, 0.392)),  left center fixed */
 }
 .containerBackground {
     height: 100vh;
-    width: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0.392), rgba(217, 217, 217, 0.392)),
-/*Si se quita está línea se quita la capa del degradado*/
-url(./img/Logo-red-social.png) no-repeat left center fixed;
+    width: 100%;  
 align-items: center;
     display: flex;
     gap: 25px;
@@ -177,19 +174,19 @@ margin:0;
  /* este es el div de form */
 .loginContainer {
     display: flex;
-    max-width: 500px;
-    min-width: 350px;
-    max-height: 80%;
-    min-height: 50%;
+    /* max-width: 400px;
+    min-width: 200px;
+    max-height: 60%;
+    min-height: 30%;  */
     flex-direction: column;
     align-items: center;
     justify-content: center;
-     margin: 20px;
+     margin: 30px;
     padding: 3%;
     flex-grow: 1;
     border:none;
-    flex-basis: 200px;
-    background-color:  #ee840cb7;
+    flex-basis: 10%;
+    background-color:  white;
     border-radius: 10px;
 
     
@@ -203,10 +200,14 @@ margin:0;
     min-height: 40%;
     flex-direction: column;
     align-items: center;
-    flex-basis: 200px;
+    flex-basis: 150px;
     flex-grow: 1;
     justify-content: center;
     margin: 20px;
+    background-image: url(./img/Logo-red-social.png); 
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
 }
 
 .buttonEnter {
