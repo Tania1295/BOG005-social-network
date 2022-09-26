@@ -21,14 +21,16 @@ const onNavigate = (pathname, paramRoutes = routes) => {
   // rootSection.removeChild(rootSection.firstChild);
   rootSection.replaceChildren(paramRoutes[pathname]);
 };
+
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   rootSection.removeChild(rootSection.firstChild);
   rootSection.append(component);
 };
-window.addEventListener("load", ()=>{
-  onNavigate('/')
+
+window.addEventListener("load", ()=> {
+  onNavigate(window.location.pathname)
 })
  rootSection.appendChild(component);
 
