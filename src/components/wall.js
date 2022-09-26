@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import { loginOut } from '../lib/firebase.js';
-// import { displayName } from '../lib/firebase.js';
+//import { getName } from '../components/register.js';
 
 export const wall = () => {
   const container = document.createElement('section');

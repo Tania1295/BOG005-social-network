@@ -18,11 +18,11 @@ export const register = () => {
   const formRegister = document.createElement('form');
 
   const buttonSign = document.createElement('button');
-  buttonSign.className = 'buttons';
+  buttonSign.className = 'buttonEnter';
   buttonSign.textContent = 'Registrarme';
 
   const buttonBack = document.createElement('button');
-  buttonBack.className = 'buttons';
+  buttonBack.className = 'buttonBack';
   buttonBack.textContent = 'Regresar';
 
   const inputEmail = document.createElement('input');
