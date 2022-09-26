@@ -17,11 +17,11 @@ export const register = () => {
   const formRegister = document.createElement('form');
 
   const buttonSign = document.createElement('button');
-  buttonSign.className = 'buttons';
+  buttonSign.className = 'buttonEnter';
   buttonSign.textContent = 'Registrarme';
 
   const buttonBack = document.createElement('button');
-  buttonBack.className = 'buttons';
+  buttonBack.className = 'buttonBack';
   buttonBack.textContent = 'Regresar';
 
   const inputEmail = document.createElement('input');
@@ -101,19 +101,15 @@ export const register = () => {
   return container;
 
 }
-// export { getName };
+
 
   //Traemos el nombre del usuario, sin el nombre de usuario las preguntas se bloquean y no se muestran//
-// function getName(){
-//   const name = document.getElementById("name")
-//   if(name){
-//     localStorage.setItem('username', name.value);
-//     page1.style.display="none"
-//     question1.style.display="block"
-//     question2.style.display="block"
-//     question3.style.display="block"
-//     playername.innerHTML="¡Hola, Bienvenida " + name.value + "!"
-//   }
+function getName(){
+  const name = document.getElementById("name")
+  if(name){
+    localStorage.setItem('username', name.value);
+}}
+export { getName };
 // }
 // }
 

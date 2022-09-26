@@ -5,13 +5,14 @@ export const login = () => {
   const container = document.createElement('section');
   container.className = 'containerLogin';
 
+  const imageLogo = document.createElement('img');
+  imageLogo.src = './img/Logo-red-social.png';
+  imageLogo.alt = 'Imagen logo Travelers';
+  imageLogo.className = 'logoRed';
+
   const title = document.createElement('h1');
   title.className = 'title';
   title.textContent = 'Travelers';
-
-  const subTitle = document.createElement('h3');
-  subTitle.className = 'subTitle';
-  subTitle.textContent = 'Por el mundo';
 
   const containerBackgroundEnd = document.createElement('section');
   containerBackgroundEnd.className = 'containerBackgroundEnd';
@@ -27,6 +28,7 @@ export const login = () => {
   buttonEnter.className = 'buttonEnter';
 
   const buttonBack = document.createElement('button');
+  buttonBack.className = 'buttonBack';
   buttonBack.textContent = 'Regresar';
 
   const inputEmail = document.createElement('input');
@@ -74,17 +76,16 @@ export const login = () => {
       });
   });
 
-  container.append(title, subTitle);
+  container.append(imageLogo, title);
   
   formLogin.append(emailText, inputEmail,
     passwordText,
     inputPassword,
     buttonEnter,
-    errorText,
-    buttonBack);
+    errorText);
 
   containerBackground.append(container,
-    formLogin)
+    formLogin, buttonBack)
 
   containerBackgroundEnd.appendChild(
     containerBackground

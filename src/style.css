@@ -10,11 +10,12 @@
     min-height: 100vh;
 }
 
-html, body {
+html,
+body {
     height: 100vh;
     margin: 0px;
     overflow-x: hidden;
-    padding:0;
+    padding: 0;
 }
 
 
@@ -28,13 +29,16 @@ html, body {
     text-align: center;
 }
 
- p {
+
+
+p {
     font-family: 'Work Sans', sans-serif;
     font-size: medium;
     margin-top: 20px;
-    
+
 }
-.loginContainer > p {
+
+.loginContainer>p {
     font-family: 'Work Sans', sans-serif;
     font-size: medium;
     margin-top: 20px;
@@ -63,7 +67,7 @@ input {
 .buttons {
     display: flex;
     margin: 1em;
-    padding: 1.1em;
+    padding: 1.1em 2.3em;
     background-color: #ffff;
     border-radius: 0.4em;
     border: none;
@@ -95,7 +99,7 @@ input {
 }
 
 .buttonSignUp:hover {
-    color:#F77E21;
+    color: #F77E21;
     border-bottom: 0.1em solid #F77E21;
     cursor: pointer;
 }
@@ -151,62 +155,61 @@ div {
 
 /* Login */
 
-#root > .containerBackgroundEnd {
-    height: 115vh;
-    width: 100%;
+#root>.containerBackgroundEnd {
+    height: 130vh;
+    width: 100vw;
     background-color: #F77E21;
     animation: moveInBottom 0.5s ease-out .75s;
     animation-fill-mode: backwards;
-    /* linear-gradient(rgba(255, 255, 255, 0.392), rgba(217, 217, 217, 0.392)),  left center fixed */
+    justify-content: center;
+    align-items: center;
 }
+
 .containerBackground {
-    height: 100vh;
-    width: 100%;  
-align-items: center;
+    align-items: center;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
     justify-content: space-evenly;
-margin:0;
-
+    margin: 10px;
 }
 
 
- /* este es el div de form */
+/* este es el div de form */
 .loginContainer {
     display: flex;
-    /* max-width: 400px;
-    min-width: 200px;
-    max-height: 60%;
-    min-height: 30%;  */
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-     margin: 30px;
-    padding: 3%;
+    margin: 15px;
+    padding: 10px;
     flex-grow: 1;
-    border:none;
-    flex-basis: 10%;
-    background-color:  white;
+    border: none;
+    flex-basis: 15%;
+    background-color: white;
     border-radius: 10px;
 }
 
 .containerLogin {
     display: flex;
     max-width: 500px;
-    min-width: 350px;
+    min-width: 250px;
     max-height: 80%;
-    min-height: 40%;
+    min-height: 30%;
     flex-direction: column;
     align-items: center;
     flex-basis: 150px;
     flex-grow: 1;
     justify-content: center;
-    margin: 20px;
-    background-image: url(./img/Logo-red-social.png); 
+    margin: 10px;
+    /*  background-image: url(./img/Logo-red-social.png); 
     background-repeat: no-repeat;
     background-size: 70%;
-    background-position: center;
+    background-position: center; */
 }
 
 .buttonEnter {
@@ -222,6 +225,7 @@ margin:0;
     cursor: pointer;
     border: solid rgba(31, 31, 31, 0.473) 1px;
 }
+
 #errorText {
     background-color: #f34a4a;
     color: #fff;
@@ -233,7 +237,7 @@ margin:0;
 
 .containerWelcome {
     background-color: #F77E21;
-  align-items: center;
+    align-items: center;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
@@ -266,13 +270,13 @@ margin:0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-     margin: 20px;
+    margin: 20px;
     background-color: white;
     border-radius: 10px;
     padding: 3%;
     flex-grow: 1;
     box-shadow: 4px 4px 10px 0px #333333b7;
-    border:none;
+    border: none;
     flex-basis: 200px;
 }
 

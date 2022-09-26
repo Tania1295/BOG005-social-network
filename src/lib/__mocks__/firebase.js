@@ -5,6 +5,6 @@ const createUser =(email, password) => {
 
 const loginUser = (email, password) => {
     return Promise.resolve()
-} 
+}
 
 export { loginUser, createUser }
