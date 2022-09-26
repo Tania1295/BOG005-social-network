@@ -27,9 +27,9 @@ window.onpopstate = () => {
   rootSection.removeChild(rootSection.firstChild);
   rootSection.append(component);
 };
-window.addEventListener("load", ()=>{
-  onNavigate('/')
+window.addEventListener("load", () => {
+  onNavigate()
 })
- rootSection.appendChild(component);
+rootSection.appendChild(component);
 
-export {onNavigate};
+export { onNavigate };

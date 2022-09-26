@@ -7,6 +7,7 @@ export const welcome = () => {
 
   const containerTitle = document.createElement('article');
   containerTitle.setAttribute('id', 'containerTitle');
+
   const imageLogo = document.createElement('img');
   imageLogo.src = './img/Logo-red-social.png';
   imageLogo.alt = 'Imagen logo Travelers';
@@ -20,10 +21,9 @@ export const welcome = () => {
   slogan.textContent = 'Sitio para compartir tus experiencias por el mundo.';
   slogan.className = 'slogan';
 
-
   const containerBody = document.createElement('article');
   containerBody.setAttribute('id', 'containerBody');
- 
+
   const registerText = document.createElement('p');
   registerText.textContent = '¿No tienes una cuenta?';
 
@@ -36,15 +36,16 @@ export const welcome = () => {
 
   const buttonLoginGoogle = document.createElement('button');
   buttonLoginGoogle.setAttribute('id', 'buttonGoogle');
+
   const divGoogle = document.createElement('div');
   const textGoogle = document.createElement('p');
   textGoogle.textContent = 'Ingresar con Google';
   textGoogle.setAttribute('id', 'textGoogle');
+
   const imageGoogle = document.createElement('img');
   imageGoogle.src = './img/logo-google.png';
   imageGoogle.alt = 'Google';
   imageGoogle.className = 'imageGoogle';
-
 
   const buttonSignUp = document.createElement('button');
   buttonSignUp.className = 'buttonSignUp';
@@ -78,8 +79,6 @@ export const welcome = () => {
     containerTitle,
     containerBody
   );
-
-
 
   return container;
 };

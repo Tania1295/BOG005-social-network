@@ -35,7 +35,6 @@ export const register = () => {
   inputName.placeholder = 'Nombre';
   inputName.setAttribute('required', '');
   inputName.setAttribute('id', 'name');
-  
 
   const inputPassword = document.createElement('input');
   inputPassword.type = 'password';
@@ -80,7 +79,6 @@ export const register = () => {
     e.preventDefault();
     onNavigate('/');
   });
- 
 
   container.append(
     title,
@@ -102,7 +100,7 @@ export const register = () => {
 
   return container;
 
-  }
+}
 // export { getName };
 
   //Traemos el nombre del usuario, sin el nombre de usuario las preguntas se bloquean y no se muestran//
