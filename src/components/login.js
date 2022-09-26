@@ -59,6 +59,7 @@ export const login = () => {
 
     loginUser(email, password)
       .then(() => {
+        // localStorage.setItem('emailUser', email);
         onNavigate('/wall');
       })
 

@@ -7,9 +7,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+//  updateProfile
+} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import config from './config.js';
 // import { getFirestore } from 'firebase/firestore';
 
@@ -20,7 +21,7 @@ const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, p
 const loginOut = signOut(auth);
 const provider = new GoogleAuthProvider();
 const popUp = () => signInWithPopup(auth, provider);
-// let displayName = user.displayName;
+// const profile = (auth, displayName) => updateProfile (auth.currentUser, displayName);
 
 // const db = getFirestore(firebaseApp);
 
@@ -32,4 +33,4 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export {app, createUser, loginUser, loginOut, provider, popUp};
+export {app, createUser, loginUser, loginOut, provider, popUp, auth};
