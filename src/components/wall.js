@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
-import { loginOut } from '../lib/firebase.js';
-//import { getName } from '../components/register.js';
+import { loginOut, auth } from '../lib/firebase.js';
+
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -8,6 +8,7 @@ export const wall = () => {
   const header = document.createElement('header');
 
   const user = document.createElement('h2');
+  user.textContent = auth.currentUser.displayName;
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';

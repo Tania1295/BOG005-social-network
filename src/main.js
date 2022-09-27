@@ -4,10 +4,10 @@ import { register } from './components/register.js';
 import { wall } from './components/wall.js';
 
 const routes = {
-  '/': welcome(),
-  '/login': login(),
-  '/register': register(),
-  '/wall': wall(),
+  '/': welcome,
+  '/login': login,
+  '/register': register,
+  '/wall': wall,
 };
 
 const onNavigate = (pathname, paramRoutes = routes) => {
@@ -17,12 +17,12 @@ const onNavigate = (pathname, paramRoutes = routes) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootSection.replaceChildren(paramRoutes[pathname]);
+  rootSection.replaceChildren(paramRoutes[pathname]());
 };
 
 window.onpopstate = () => onNavigate(window.location.pathname);
 
-window.addEventListener("load", ()=>  onNavigate(window.location.pathname))
+window.addEventListener("load", () => onNavigate(window.location.pathname))
 
 
 export { onNavigate };

@@ -1,6 +1,6 @@
-// import { updateProfile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+//import { updateProfile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { createUser, auth } from '../lib/firebase.js';
+import { createUser, profile } from '../lib/firebase.js';
 
 
 export const register = () => {
@@ -62,29 +62,31 @@ export const register = () => {
     const nameUser = document.getElementById('name').value
 
     createUser(email, password)
-      .then(() => {
-        updateProfile(auth.currentUser, {
-          displayName: nameUser,
-        }).then(() => {
-          //  Profile updated!
-          console.log(auth.currentUser);
+      .then((credential) => {
+        const user = credential.user;
+        console.log(user);
+        profile(user,
+          nameUser,
+        ).then(() => {
+          onNavigate('/wall');
+          console.log(user);
           // ...
-        }).catch((error) => {
-          // An error occurred
-          // ...
-        });
-        onNavigate('/wall');
+        })
+        /*    .catch((error) => {
+ 
+           }); */
+
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        if (errorCode === 'auth/email-already-in-use') {
-          errorText.textContent = 'Este correo ya se encuentra registrado';
-        } else if (errorCode === 'auth/weak-password') {
-          errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
-        } else if (errorCode === 'auth/invalid-email') {
-          errorText.textContent = 'El correo es inválido';
-        }
-      });
+    /*       .catch((error) => {
+            const errorCode = error.code;
+            if (errorCode === 'auth/email-already-in-use') {
+              errorText.textContent = 'Este correo ya se encuentra registrado';
+            } else if (errorCode === 'auth/weak-password') {
+              errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
+            } else if (errorCode === 'auth/invalid-email') {
+              errorText.textContent = 'El correo es inválido';
+            }
+          }); */
   });
 
   buttonBack.addEventListener('click', (e) => {
