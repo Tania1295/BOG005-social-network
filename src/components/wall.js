@@ -7,8 +7,9 @@ export const wall = () => {
 
   const header = document.createElement('header');
 
-  const user = document.createElement('h2');
-  user.textContent = auth.currentUser.displayName;
+  const userHdos = document.createElement('h2');
+  //userHdos.className = 'nameUser';
+  userHdos.textContent = auth.currentUser.displayName;
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';
@@ -27,7 +28,19 @@ export const wall = () => {
     });
   });
 
-  container.append(header, user, buttonClose, message, messageText);
+  container.append(header, userHdos, buttonClose, message, messageText);
+
+  /*   onAuthStateChanged(auth, (user) => {
+      if (user != null) {
+        //const nameDisplay = document.querySelector(".nameUser");
+        userHdos.textContent = user.displayName;
+        console.log(user);
+      } else {
+        console.log('No User');
+      }
+    }); */
 
   return container;
 };
+
+

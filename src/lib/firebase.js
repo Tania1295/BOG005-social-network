@@ -12,7 +12,7 @@ import {
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import config from './config.js';
-import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+//import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 const app = initializeApp(config);
 const auth = getAuth();
@@ -25,12 +25,4 @@ const profile = (user, displayName) => updateProfile(user, { displayName });
 
 //const dataFirestore = getFirestore(config);
 
-onAuthStateChanged(auth, (user) => {
-  if (user != null) {
-    console.log(user);
-  } else {
-    console.log('No User');
-  }
-});
-
-export { app, createUser, loginUser, loginOut, provider, popUp, auth, profile };
+export { app, createUser, loginUser, loginOut, provider, popUp, auth, profile, onAuthStateChanged };
