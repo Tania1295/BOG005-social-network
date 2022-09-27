@@ -7,7 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-//  updateProfile
+  //  updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
@@ -33,4 +33,4 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-export {app, createUser, loginUser, loginOut, provider, popUp, auth};
+export { app, createUser, loginUser, loginOut, provider, popUp, auth };

@@ -1,4 +1,4 @@
-import { updateProfile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+// import { updateProfile } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { createUser, auth } from '../lib/firebase.js';
 
@@ -60,20 +60,19 @@ export const register = () => {
     const email = document.getElementById('emailSignup').value;
     const password = document.getElementById('passwordSignup').value;
     const nameUser = document.getElementById('name').value
-    
 
     createUser(email, password)
       .then(() => {
-          updateProfile(auth.currentUser, {
+        updateProfile(auth.currentUser, {
           displayName: nameUser,
- }).then(() => {
-  //  Profile updated!
-   console.log(auth.currentUser);
-   // ...
- }).catch((error) => {
-   // An error occurred
-   // ...
- });
+        }).then(() => {
+          //  Profile updated!
+          console.log(auth.currentUser);
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
         onNavigate('/wall');
       })
       .catch((error) => {
@@ -114,5 +113,5 @@ export const register = () => {
   return container;
 
 }
-export {updateProfile};
+// export { updateProfile };
 

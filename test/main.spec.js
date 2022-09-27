@@ -14,10 +14,9 @@ const mockRoute = {
     '/login': mockLogin(),
 }
 
-
-describe("Should test login", () => {
+describe("Should test login view", () => {
     it("Call mockLogin", () => {
-        document.body.innerHTML=`<section id="root"></section>`
+        document.body.innerHTML = `<section id="root"></section>`
         onNavigate('/login', mockRoute)
         expect(document.getElementById('root').textContent).toEqual('Hola Login')
     })

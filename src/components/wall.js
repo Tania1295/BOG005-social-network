@@ -9,8 +9,6 @@ export const wall = () => {
 
   const user = document.createElement('h2');
 
-
-  
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';
   buttonClose.className = 'buttons';
