@@ -66,18 +66,18 @@ export const register = () => {
         const user = credential.user;
         console.log(user);
         profile(user,
-          nameUser,
-        ).then(() => {
+          nameUser)
+          .then(() => {
           onNavigate('/wall');
           console.log(user);
           // ...
         })
-        /*    .catch((error) => {
+           .catch((error) => {
  
-           }); */
+           }); 
 
       })
-    /*       .catch((error) => {
+          .catch((error) => {
             const errorCode = error.code;
             if (errorCode === 'auth/email-already-in-use') {
               errorText.textContent = 'Este correo ya se encuentra registrado';
@@ -86,7 +86,7 @@ export const register = () => {
             } else if (errorCode === 'auth/invalid-email') {
               errorText.textContent = 'El correo es inválido';
             }
-          }); */
+          }); 
   });
 
   buttonBack.addEventListener('click', (e) => {

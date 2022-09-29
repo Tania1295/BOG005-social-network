@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginOut, auth } from '../lib/firebase.js';
+import { loginOut, auth, onAuthStateChanged } from '../lib/firebase.js';
 
 
 export const wall = () => {
@@ -8,8 +8,8 @@ export const wall = () => {
   const header = document.createElement('header');
 
   const userHdos = document.createElement('h2');
-  //userHdos.className = 'nameUser';
-  userHdos.textContent = auth.currentUser.displayName;
+  userHdos.className = 'nameUser';
+//userHdos.textContent = auth.currentUser.displayName;
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';
@@ -23,23 +23,22 @@ export const wall = () => {
 
   buttonClose.addEventListener('click', () => {
     loginOut.then(() => {
-      // localStorage.clear();
       onNavigate('/');
     });
   });
 
   container.append(header, userHdos, buttonClose, message, messageText);
 
-  /*   onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, (user) => {
       if (user != null) {
-        //const nameDisplay = document.querySelector(".nameUser");
+        // const nameDisplay = document.querySelector(".nameUser");
         userHdos.textContent = user.displayName;
         console.log(user);
       } else {
         console.log('No User');
       }
-    }); */
-
+    }); 
+ 
   return container;
 };
 
