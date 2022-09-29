@@ -13,7 +13,7 @@ const mockWelcome = () => {
 }
 
 const mockRoute = {
-    '/': mockWelcome(),
+    '/': mockWelcome,
 }
 
 describe("Should test welcome view", () => {
@@ -37,7 +37,7 @@ const mockWelcomeButton = () => {
 }
 
 const mockRouteWelcome = {
-    '/Login': mockWelcomeButton(),
+    '/Login': mockWelcomeButton,
 }
 
 describe("Should test button Login", () => {

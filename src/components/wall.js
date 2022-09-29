@@ -33,6 +33,7 @@ export const wall = () => {
       if (user != null) {
         // const nameDisplay = document.querySelector(".nameUser");
         userHdos.textContent = user.displayName;
+        
         console.log(user);
       } else {
         console.log('No User');

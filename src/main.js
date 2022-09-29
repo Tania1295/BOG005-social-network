@@ -11,7 +11,6 @@ const routes = {
 };
 
 const onNavigate = (pathname, paramRoutes = routes) => {
-  debugger
   const rootSection = document.getElementById('root');
   window.history.pushState(
     {},

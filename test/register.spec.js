@@ -13,7 +13,7 @@ const mockRegister = () => {
 }
 
 const mockRoute = {
-    '/register': mockRegister(),
+    '/register': mockRegister,
 }
 
 describe("Should test register view", () => {
@@ -37,7 +37,7 @@ const mockRegisterButton = () => {
 }
 
 const mockRouteRegister = {
-    '/Register': mockRegisterButton(),
+    '/Register': mockRegisterButton,
 }
 
 describe("Should test button Register", () => {

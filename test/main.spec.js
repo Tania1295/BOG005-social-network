@@ -11,7 +11,7 @@ const mockLogin = () => {
 }
 
 const mockRoute = {
-    '/login': mockLogin(),
+    '/login': mockLogin,
 }
 
 describe("Should test login view", () => {
