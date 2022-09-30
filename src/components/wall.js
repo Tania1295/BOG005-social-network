@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginOut, auth, onAuthStateChanged } from '../lib/firebase.js';
+import { loginOut, auth, dataFirestore, addDoc, collection } from '../lib/firebase.js';
 
 
 export const wall = () => {
@@ -9,7 +9,7 @@ export const wall = () => {
 
   const userHdos = document.createElement('h2');
   userHdos.className = 'nameUser';
-//userHdos.textContent = auth.currentUser.displayName;
+userHdos.textContent = auth.currentUser.displayName; //importar auth para que funcione
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';
@@ -20,25 +20,29 @@ export const wall = () => {
   const messageText = document.createElement('textarea');
   messageText.placeholder = 'Escribe aquí tu post';
   messageText.className = 'textUser';
-
+const buttonPublish = document.createElement("button")
+buttonPublish.textContent ="publicar"
+buttonPublish.className= "buttons"
   buttonClose.addEventListener('click', () => {
     loginOut.then(() => {
       onNavigate('/');
     });
   });
 
-  container.append(header, userHdos, buttonClose, message, messageText);
+  buttonPublish.addEventListener("click", ()=>{
+    console.log(messageText.value)
+  addDoc(collection(dataFirestore, "PostWall"),{
+    post: messageText.value
+  }).then(() => {
+    console.log("Se guardo");
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+  })
 
-    onAuthStateChanged(auth, (user) => {
-      if (user != null) {
-        // const nameDisplay = document.querySelector(".nameUser");
-        userHdos.textContent = user.displayName;
-        
-        console.log(user);
-      } else {
-        console.log('No User');
-      }
-    }); 
+  container.append(header, userHdos, buttonClose, message, messageText, buttonPublish);
+
  
   return container;
 };

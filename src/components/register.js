@@ -65,8 +65,7 @@ export const register = () => {
       .then((credential) => {
         const user = credential.user;
         console.log(user);
-        profile(user,
-          nameUser)
+        profile(user, nameUser)
           .then(() => {
           onNavigate('/wall');
           console.log(user);
