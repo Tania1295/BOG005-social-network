@@ -1,10 +1,10 @@
 
-const createUser =(email, password) => {
+const createUser = (email, password) => {
   return Promise.resolve()
 };
 
 const loginUser = (email, password) => {
-    return Promise.resolve()
+  return Promise.resolve()
 }
 
 export { loginUser, createUser }

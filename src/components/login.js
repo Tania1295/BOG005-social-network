@@ -78,7 +78,7 @@ export const login = () => {
   });
 
   container.append(imageLogo, title);
-  
+
   formLogin.append(emailText, inputEmail,
     passwordText,
     inputPassword,
@@ -86,11 +86,10 @@ export const login = () => {
     errorText);
 
   containerBackground.append(container,
-    formLogin, buttonBack)
+    formLogin, buttonBack);
 
   containerBackgroundEnd.appendChild(
     containerBackground
-
   );
   return containerBackgroundEnd;
 };

@@ -59,7 +59,7 @@ export const register = () => {
     e.preventDefault();
     const email = document.getElementById('emailSignup').value;
     const password = document.getElementById('passwordSignup').value;
-    const nameUser = document.getElementById('name').value
+    const nameUser = document.getElementById('name').value;
 
     createUser(email, password)
       .then((credential) => {
@@ -68,25 +68,25 @@ export const register = () => {
         profile(user,
           nameUser)
           .then(() => {
-          onNavigate('/wall');
-          console.log(user);
-          // ...
-        })
-           .catch((error) => {
- 
-           }); 
+            onNavigate('/wall');
+            console.log(user);
+            // ...
+          })
+          .catch(() => {
+
+          });
 
       })
-          .catch((error) => {
-            const errorCode = error.code;
-            if (errorCode === 'auth/email-already-in-use') {
-              errorText.textContent = 'Este correo ya se encuentra registrado';
-            } else if (errorCode === 'auth/weak-password') {
-              errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
-            } else if (errorCode === 'auth/invalid-email') {
-              errorText.textContent = 'El correo es inválido';
-            }
-          }); 
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/email-already-in-use') {
+          errorText.textContent = 'Este correo ya se encuentra registrado';
+        } else if (errorCode === 'auth/weak-password') {
+          errorText.textContent = 'La contraseña debe tener al menos 6 carácteres';
+        } else if (errorCode === 'auth/invalid-email') {
+          errorText.textContent = 'El correo es inválido';
+        }
+      });
   });
 
   buttonBack.addEventListener('click', (e) => {

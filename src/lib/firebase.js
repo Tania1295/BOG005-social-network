@@ -12,7 +12,7 @@ import {
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import config from './config.js';
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getFirestore, collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 const app = initializeApp(config);
 const auth = getAuth();
@@ -25,4 +25,18 @@ const profile = (user, displayName) => updateProfile(user, { displayName });
 const dataFirestore = getFirestore(app);
 
 
-export { app, createUser, loginUser, loginOut, provider, popUp, auth, profile, onAuthStateChanged, dataFirestore, collection, getDocs };
+export {
+  app,
+  createUser,
+  loginUser,
+  loginOut,
+  provider,
+  popUp,
+  auth,
+  profile,
+  onAuthStateChanged,
+  dataFirestore,
+  collection,
+  getDocs,
+  addDoc,
+};

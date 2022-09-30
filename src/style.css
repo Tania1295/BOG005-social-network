@@ -18,8 +18,6 @@ body {
     padding: 0;
 }
 
-
-
 .title {
     font-family: 'Fredoka One', cursive;
     font-weight: 900;
@@ -29,13 +27,10 @@ body {
     text-align: center;
 }
 
-
-
 p {
     font-family: 'Work Sans', sans-serif;
     font-size: medium;
     margin-top: 20px;
-
 }
 
 .loginContainer>p {
@@ -52,8 +47,6 @@ p {
     font-size: 1.1em;
     width: 88%;
     margin: 10px 0 30px;
-
-
 }
 
 input {
@@ -79,8 +72,6 @@ input {
 }
 
 /* Welcome */
-
-
 .logoRed {
     min-height: 100px;
     min-width: 100px;
@@ -115,7 +106,6 @@ input {
     display: inline-block;
     background-color: #fff;
     border-radius: 0.3em;
-
 }
 
 #textGoogle {
@@ -123,7 +113,6 @@ input {
     margin: 0.7em;
     padding: 0;
 }
-
 
 #buttonGoogle {
     background-color: #ffff;
@@ -141,9 +130,7 @@ input {
 #buttonGoogle:hover {
     background-color: #4285F4;
     color: #fff;
-
 }
-
 
 /* este es el div que contiene la imagen y el texto de Google! */
 div {
@@ -154,7 +141,6 @@ div {
 }
 
 /* Login */
-
 #root>.containerBackgroundEnd {
     height: 130vh;
     width: 100vw;
@@ -173,7 +159,6 @@ div {
     justify-content: space-evenly;
     margin: 10px;
 }
-
 
 /* este es el div de form */
 .loginContainer {
@@ -295,13 +280,6 @@ div {
 }
 
 /* Wall */
-.textUser {
-    width: 8cm;
-    padding: 50px;
-    padding-top: 1px;
-    padding-left: 1px;
-}
-
 @keyframes moveInBottom {
     0% {
         opacity: 0;
@@ -312,4 +290,56 @@ div {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+.headerWall {
+    height: 15vh;
+    width: 100%;
+    margin-top: -18pc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.logoWall {
+    height: 2cm;
+    width: 2cm;
+    margin-left: 5px;
+}
+
+.buttonClose {
+    height: 2pc;
+    width: 4pc;
+    margin: 20px 15px 0 20pc;
+}
+
+.nameUser {
+    margin-top: 22px;
+    margin-left: 5pc;
+}
+
+.sectionPost {
+    background-color: beige;
+    padding: 5pc auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textUser {
+    margin: 5pc;
+    width: 8cm;
+    padding: 50px;
+    padding-top: 3px;
+    padding-left: 5px;
+    border-radius: 3%;
+    font-style: italic;
+}
+
+.buttonPublish {
+    margin-top: -2cm;
+    border-color: grays;
 }
