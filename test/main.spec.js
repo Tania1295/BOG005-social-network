@@ -1,5 +1,6 @@
 import { onNavigate } from "../src/main";
 
+/*eslint-diabled next line */
 jest.mock('../src/lib/firebase.js')
 
 const mockLogin = () => {

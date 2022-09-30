@@ -72,8 +72,8 @@ export const welcome = () => {
   divGoogle.append(imageGoogle, textGoogle);
   buttonLoginGoogle.appendChild(divGoogle);
 
-  containerTitle.append(imageLogo, title, slogan)
-  containerBody.append(buttonLogin, orText, buttonLoginGoogle, registerText, buttonSignUp)
+  containerTitle.append(imageLogo, title, slogan);
+  containerBody.append(buttonLogin, orText, buttonLoginGoogle, registerText, buttonSignUp);
 
   container.append(
     containerTitle,
