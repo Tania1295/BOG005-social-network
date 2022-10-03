@@ -1,6 +1,5 @@
 import { onNavigate } from '../main.js';
-import { loginOut, auth, dataFirestore, addDoc, collection } from '../lib/firebase.js';
-
+import { loginOut, auth, dataFirestore, addDoc, collection, onAuthStateChanged, getDocs } from '../lib/firebase.js';
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -8,15 +7,18 @@ export const wall = () => {
 
   const header = document.createElement('header');
   header.className = 'headerWall';
+
   const imageWall = document.createElement('img');
   imageWall.src = './img/Logo-red-social.png';
   imageWall.alt = 'Imagen logo Travelers';
   imageWall.className = 'logoWall';
+
   const subTitleWall = document.createElement('h2');
   subTitleWall.textContent = "Travelers";
+
   const userHdos = document.createElement('h1');
   userHdos.className = 'nameUser';
-userHdos.textContent = auth.currentUser.displayName; //importar auth para que funcione
+  userHdos.textContent = auth.currentUser.displayName; //importar auth para que funcione
 
   const buttonClose = document.createElement('button');
   buttonClose.textContent = 'Cerrar Sesión';
@@ -28,6 +30,10 @@ userHdos.textContent = auth.currentUser.displayName; //importar auth para que fu
   const messageText = document.createElement('textarea');
   messageText.placeholder = 'Escribe aquí tu post';
   messageText.className = 'textUser';
+
+  const errorText = document.createElement('p');
+  errorText.setAttribute('id', 'errorText');
+
   const buttonPublish = document.createElement('button');
   buttonPublish.className = 'buttonPublish';
   buttonPublish.textContent = 'Publicar';
@@ -38,28 +44,41 @@ userHdos.textContent = auth.currentUser.displayName; //importar auth para que fu
     });
   });
 
-  buttonPublish.addEventListener("click", ()=>{
-    console.log(messageText.value)
-  addDoc(collection(dataFirestore, "PostWall"),{
-    post: messageText.value
-  }).then(() => {
-    console.log("Se guardo");
-})
-.catch((error) => {
-    console.error("Error adding document: ", error);
-});
-  })
+  buttonPublish.addEventListener("click", () => {
+    if (messageText.value === "") {
+      errorText.textContent = 'Escribe algo para publicar';
+    } else {
+      console.log(messageText.value)
+      addDoc(collection(dataFirestore, "PostWall"), {
+        post: messageText.value
+      }).then(() => {
+        console.log("Se guardo");
+      })
+        .catch((error) => {
+          console.error("Error adding document: ", error);
+        });
+    }
+  });
 
-  container.append(header, userHdos, buttonClose, message, messageText, buttonPublish);
+  container.append(header, userHdos, buttonClose, messageText, errorText, buttonPublish);
 
- 
-  
-  
   onAuthStateChanged(auth, (user) => {
     if (user != null) {
       // const nameDisplay = document.querySelector(".nameUser");
       userHdos.textContent = user.displayName;
       console.log(user);
+      getDocs(collection(dataFirestore, "PostWall"))
+        .then((snapshot) => {
+          console.log(snapshot.docs)
+          snapshot.forEach(doc => {
+            console.log(doc.data().post)
+            const containerPost = document.createElement("article");
+            const textPost = document.createElement("p");
+            textPost.textContent = doc.data().post;
+            containerPost.appendChild(textPost)
+            container.appendChild(containerPost)
+          });
+        })
     } else {
       console.log('No User');
     }
