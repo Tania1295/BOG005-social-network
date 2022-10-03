@@ -8,6 +8,9 @@ export const wall = () => {
   const header = document.createElement('header');
   header.className = 'headerWall';
 
+  const mainWall = document.createElement('section');
+  mainWall.className = 'mainWall';
+
   const imageWall = document.createElement('img');
   imageWall.src = './img/Logo-red-social.png';
   imageWall.alt = 'Imagen logo Travelers';
@@ -16,13 +19,24 @@ export const wall = () => {
   const subTitleWall = document.createElement('h2');
   subTitleWall.textContent = "Travelers";
 
-  const userHdos = document.createElement('h1');
-  userHdos.className = 'nameUser';
-  userHdos.textContent = auth.currentUser.displayName; //importar auth para que funcione
+  const userNameProfile = document.createElement('h1');
+  userNameProfile.className = 'nameUser';
+  userNameProfile.textContent = auth.currentUser.displayName;
 
   const buttonClose = document.createElement('button');
-  buttonClose.textContent = 'Cerrar Sesión';
   buttonClose.className = 'buttonClose';
+
+  const divButtonBack = document.createElement('div');
+  divButtonBack.className = "divButtonBack";
+
+  const textBackButton = document.createElement('p');
+  textBackButton.textContent = 'Cerrar Sesión';
+  textBackButton.setAttribute('id', 'textBackButton');
+
+  const imageBack = document.createElement('img');
+  imageBack.src = './img/cerrar-sesion.png';
+  imageBack.alt = 'Back';
+  imageBack.className = 'imageBack';
 
   const post = document.createElement('article');
   post.className = 'sectionPost';
@@ -60,12 +74,20 @@ export const wall = () => {
     }
   });
 
-  container.append(header, userHdos, buttonClose, messageText, errorText, buttonPublish);
+  divButtonBack.append(imageBack, textBackButton);
+
+  buttonClose.appendChild(divButtonBack);
+
+  mainWall.append(header, container)
+
+  header.append(userNameProfile, buttonClose)
+
+  container.append(header, messageText, errorText, buttonPublish);
 
   onAuthStateChanged(auth, (user) => {
     if (user != null) {
       // const nameDisplay = document.querySelector(".nameUser");
-      userHdos.textContent = user.displayName;
+      userNameProfile.textContent = user.displayName;
       console.log(user);
       getDocs(collection(dataFirestore, "PostWall"))
         .then((snapshot) => {
@@ -73,16 +95,27 @@ export const wall = () => {
           snapshot.forEach(doc => {
             console.log(doc.data().post)
             const containerPost = document.createElement("article");
+            containerPost.className = 'containerPost';
             const textPost = document.createElement("p");
+            const imageLike = document.createElement("img");
+            imageLike.src = './img/iconomegusta.png';
+            imageLike.alt = 'Like';
+            imageLike.className = 'imageLike';
             textPost.textContent = doc.data().post;
-            containerPost.appendChild(textPost)
-            container.appendChild(containerPost)
+            containerPost.append(textPost, imageLike);
+            container.appendChild(containerPost);
+
+            const likeEvent = document.querySelector(".imageLike")
+            likeEvent?.addEventListener('click', () => {
+              alert('Diste like')
+            })
           });
+
         })
     } else {
       console.log('No User');
     }
 
   });
-  return container;
+  return mainWall;
 };

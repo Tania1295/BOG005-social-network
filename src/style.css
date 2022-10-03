@@ -40,6 +40,13 @@ p {
     font-weight: 600;
 }
 
+.formRegister>p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
 .slogan {
     font-family: 'Work Sans', sans-serif;
     text-align: center;
@@ -69,6 +76,10 @@ input {
     font-size: 1em;
     cursor: pointer;
     border: solid rgba(31, 31, 31, 0.473) 1px;
+}
+
+.buttonBack {
+    background: url(../src/img/flecha-izquierda.png);
 }
 
 /* Welcome */
@@ -108,10 +119,26 @@ input {
     border-radius: 0.3em;
 }
 
+.imageBack {
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    display: inline-block;
+    background-color: #fff;
+}
+
 #textGoogle {
     display: inline-block;
     margin: 0.7em;
     padding: 0;
+}
+
+#textBackButton {
+    display: inline-block;
+    margin: 0.3em;
+    padding: 0;
+    font-size: 0.8em;
+    font-weight: 510;
 }
 
 #buttonGoogle {
@@ -125,6 +152,12 @@ input {
     margin: 1em;
     cursor: pointer;
     border: solid rgba(31, 31, 31, 0.473) 1px;
+}
+
+.buttonBack {
+    background-color: #ffff;
+    border: none;
+    cursor: pointer;
 }
 
 #buttonGoogle:hover {
@@ -177,6 +210,7 @@ div {
     flex-basis: 15%;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 4px 4px 10px 0px #333333b7;
 }
 
 .containerLogin {
@@ -268,18 +302,57 @@ div {
 /* Register */
 .containerRegister {
     display: flex;
-    min-height: 100vh;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 40%;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgba(217, 217, 217, 0.392), rgba(217, 217, 217, 0.392)),
-        /*Si se quita está línea se quita la capa del degradado*/
-        url(./img/Logo-red-social.png) no-repeat center center fixed;
-    background-size: contain;
+    flex-basis: 200px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 20px;
+}
+
+.containerItemRegister {
+    background-color: #F77E21;
+    align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px;
     animation: moveInBottom 0.5s ease-out .75s;
     animation-fill-mode: backwards;
 }
 
+.formRegister {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 10px;
+    flex-grow: 1;
+    border: none;
+    flex-basis: 15%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 0px #333333b7;
+}
+
 /* Wall */
+#containerWall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @keyframes moveInBottom {
     0% {
         opacity: 0;
@@ -295,7 +368,6 @@ div {
 .headerWall {
     height: 15vh;
     width: 100%;
-    margin-top: -18pc;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -311,9 +383,12 @@ div {
 }
 
 .buttonClose {
+    background: #ffff;
     height: 2pc;
     width: 4pc;
     margin: 20px 15px 0 20pc;
+    border: none;
+    cursor: pointer;
 }
 
 .nameUser {
@@ -330,7 +405,7 @@ div {
 }
 
 .textUser {
-    margin: 5pc;
+    margin-top: 2em;
     width: 8cm;
     padding: 50px;
     padding-top: 3px;
@@ -340,6 +415,25 @@ div {
 }
 
 .buttonPublish {
-    margin-top: -2cm;
+    list-style-type: none;
+    background-color: white;
+    border: 0;
+    font-size: medium;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
     border-color: grays;
+    border-radius: 2em;
+}
+
+.containerPost {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 1.6em;
+    margin-top: 2.5em;
+    padding: 0 3em;
+}
+
+.imageLike {
+    margin: 1em;
 }

@@ -27,9 +27,20 @@ export const login = () => {
   buttonEnter.textContent = 'Iniciar sesión';
   buttonEnter.className = 'buttonEnter';
 
+  const divButtonBack = document.createElement('div');
+  divButtonBack.className = "divButtonBack";
+
+  const textBackButton = document.createElement('p');
+  textBackButton.textContent = 'Regresar';
+  textBackButton.setAttribute('id', 'textBackButton');
+
   const buttonBack = document.createElement('button');
   buttonBack.className = 'buttonBack';
-  buttonBack.textContent = 'Regresar';
+
+  const imageBack = document.createElement('img');
+  imageBack.src = './img/flecha-izquierda.png';
+  imageBack.alt = 'Back';
+  imageBack.className = 'imageBack';
 
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('required', '');
@@ -79,14 +90,20 @@ export const login = () => {
 
   container.append(imageLogo, title);
 
+  divButtonBack.append(imageBack, textBackButton);
+
+  buttonBack.appendChild(divButtonBack);
+
   formLogin.append(emailText, inputEmail,
     passwordText,
     inputPassword,
     buttonEnter,
-    errorText);
+    buttonBack,
+    errorText,
+  );
 
   containerBackground.append(container,
-    formLogin, buttonBack);
+    formLogin);
 
   containerBackgroundEnd.appendChild(
     containerBackground

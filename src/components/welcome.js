@@ -38,6 +38,7 @@ export const welcome = () => {
   buttonLoginGoogle.setAttribute('id', 'buttonGoogle');
 
   const divGoogle = document.createElement('div');
+
   const textGoogle = document.createElement('p');
   textGoogle.textContent = 'Ingresar con Google';
   textGoogle.setAttribute('id', 'textGoogle');
@@ -70,9 +71,11 @@ export const welcome = () => {
   });
 
   divGoogle.append(imageGoogle, textGoogle);
+
   buttonLoginGoogle.appendChild(divGoogle);
 
   containerTitle.append(imageLogo, title, slogan);
+
   containerBody.append(buttonLogin, orText, buttonLoginGoogle, registerText, buttonSignUp);
 
   container.append(

@@ -2,10 +2,12 @@
 import { onNavigate } from '../main.js';
 import { createUser, profile } from '../lib/firebase.js';
 
-
 export const register = () => {
   const container = document.createElement('section');
   container.className = 'containerRegister';
+
+  const containerItemRegister = document.createElement('article');
+  containerItemRegister.className = 'containerItemRegister';
 
   const title = document.createElement('h1');
   title.className = 'title';
@@ -15,7 +17,13 @@ export const register = () => {
   subTitle.className = 'subTitle';
   subTitle.textContent = 'Por el mundo';
 
+  const imageLogo = document.createElement('img');
+  imageLogo.src = './img/Logo-red-social.png';
+  imageLogo.alt = 'Imagen logo Travelers';
+  imageLogo.className = 'logoRed';
+
   const formRegister = document.createElement('form');
+  formRegister.className = 'formRegister';
 
   const buttonSign = document.createElement('button');
   buttonSign.className = 'buttonEnter';
@@ -23,7 +31,18 @@ export const register = () => {
 
   const buttonBack = document.createElement('button');
   buttonBack.className = 'buttonBack';
-  buttonBack.textContent = 'Regresar';
+
+  const divButtonBack = document.createElement('div');
+  divButtonBack.className = "divButtonBack";
+
+  const textBackButton = document.createElement('p');
+  textBackButton.textContent = 'Regresar';
+  textBackButton.setAttribute('id', 'textBackButton');
+
+  const imageBack = document.createElement('img');
+  imageBack.src = './img/flecha-izquierda.png';
+  imageBack.alt = 'Back';
+  imageBack.className = 'imageBack';
 
   const inputEmail = document.createElement('input');
   inputEmail.type = 'email';
@@ -93,12 +112,16 @@ export const register = () => {
     onNavigate('/');
   });
 
+  divButtonBack.append(imageBack, textBackButton);
+
+  buttonBack.appendChild(divButtonBack);
+
   container.append(
     title,
     subTitle,
+    imageLogo,
     formRegister,
     errorText,
-    buttonBack,
   );
 
   formRegister.append(
@@ -109,9 +132,12 @@ export const register = () => {
     passwordText,
     inputPassword,
     buttonSign,
+    buttonBack,
   );
 
-  return container;
+  containerItemRegister.append(container, formRegister)
+
+  return containerItemRegister;
 
 }
 // export { updateProfile };
