@@ -26,15 +26,17 @@ window.onpopstate = () => onNavigate(window.location.pathname);
 window.addEventListener("load", () => onNavigate(window.location.pathname))
 
 onAuthStateChanged(auth, (user) => {
+  console.log("2 veces");
   if (user)  {
     // const nameDisplay = document.querySelector(".nameUser");
     // userHdos.textContent = user.displayName;
-    onNavigate("/wall")
-    
+    window.user = user;
     console.log(user);
+    onNavigate("/wall");
+    
   } else {
     console.log('No User');
-    onNavigate("/")
+    // onNavigate("/")
   }
 }); 
 export { onNavigate };
