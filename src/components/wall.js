@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
-import { loginOut, dataFirestore, getDocs, addDoc, collection } from '../lib/firebase.js';
+import { loginOut, onGetData, savePost, deletePost, getEdit, updtateEdit } from '../lib/firebase.js';
+
 
 export const wall = () => {
   const container = document.createElement('section');
@@ -10,34 +11,61 @@ export const wall = () => {
 
   const header = document.createElement('header');
   header.className = 'headerWall';
-
-  // onGetData((querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     const textPost = document.createElement("p");
-  //     textPost.className = "publishPost";
-  //     textPost.textContent = doc.data().post;
-  //     containerPost.appendChild(textPost);
-  //   });
-  // })
-
+  
   const containerPost = document.createElement("article");
   containerPost.className = 'containerPost';
 
+  let editStatus = false;
+  let id = ""; 
 
-  getDocs(collection(dataFirestore, "PostWall"))
-    .then((snapshot) => {
-      snapshot.forEach(doc => {
-        const textPost = document.createElement("p");
-        const imageLike = document.createElement("img");
-        textPost.className = "publishPost";
-        textPost.textContent = doc.data().post;
-        imageLike.src = './img/iconomegusta.png';
-        imageLike.alt = 'Like';
-        imageLike.className = 'imageLike';
+  onGetData((querySnapshot) => {
+    
+    containerPost.innerHTML = ""; 
 
-        containerPost.append(textPost, imageLike);
+    querySnapshot.forEach((doc) => {
+      const textPost = document.createElement("p");
+      textPost.className = "publishPost";
+      textPost.textContent = doc.data().post;
+
+      const imageLike = document.createElement("img");
+      imageLike.src = './img/iconomegusta.png';
+      imageLike.alt = 'Like';
+      imageLike.className = 'imageLike';
+
+      const btnDelete = document.createElement("button");
+      btnDelete.textContent = "Eliminar";
+      btnDelete.setAttribute("data-id", doc.id);
+      btnDelete.className = "btnDelete" ;
+
+      const btnEdit = document.createElement("button");
+      btnEdit.textContent = "Editar";
+      btnEdit.setAttribute("data-id", doc.id);
+      btnEdit.className = "btnEdit" ;
+
+      containerPost.append(textPost, imageLike, btnDelete, btnEdit);
+
+      // Borrar post
+      btnDelete.addEventListener('click', ({target: {dataset}}) => {
+        deletePost(dataset.id);
       })
+
+
+      // Editar post
+      btnEdit.addEventListener('click', e =>{
+        getEdit(e.target.dataset.id);
+        const post = doc.data();
+
+        messageText.value = post.post;
+
+        editStatus = true;  // para saber si esta actualizando el post.
+        id = doc.id;
+        // buttonPublish.innerText = 'Actualizar';
+
+      } )
+
     });
+  })
+
 
   const imageWall = document.createElement('img');
   imageWall.src = './img/Logo-red-social.png';
@@ -68,6 +96,7 @@ export const wall = () => {
   const messageText = document.createElement('textarea');
   messageText.placeholder = 'Escribe aquí tu post';
   messageText.className = 'textUser';
+  messageText.setAttribute('id', 'messagePost');
 
   const errorText = document.createElement('p');
   errorText.setAttribute('id', 'errorText');
@@ -82,34 +111,25 @@ export const wall = () => {
     });
   });
 
+  
   buttonPublish.addEventListener("click", () => {
-    if (messageText.value === "") {
-      errorText.textContent = 'Escribe algo para publicar';
-    } else {
-      console.log(messageText.value)
-      addDoc(collection(dataFirestore, "PostWall"), {
-        post: messageText.value
-      }).then(() => {
-        console.log("Se guardo");
-      })
-        .catch((error) => {
-          console.error("Error adding document: ", error);
-        });
+    const post = messageText.value;
+    console.log(post);
+    // condicional para actualizar y guardar un post.
+    if (!editStatus) {
+      savePost(post);
+       
+    } else{
+      updtateEdit(id, {
+        post}),
+
+      editStatus = false;
     }
+
+    
+    
   });
 
-  // imageLike.addEventListener('click', () => {
-  //   alert("diste like");
-    // // Sum the count of each shard in the subcollection
-    // return ref.collection('PostWall'),
-    // get().then((snapshot) => {
-    //     let total_count = 0;
-    //     snapshot.forEach((doc) => {
-    //         total_count += doc.data().count;
-    //     });
-    //     return total_count;
-    // });
-  // })
 
   header.append(imageWall, userNameProfile, buttonClose);
   container.append(header, messageText, errorText, buttonPublish, containerPost);
