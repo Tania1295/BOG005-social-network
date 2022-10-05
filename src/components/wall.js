@@ -44,6 +44,7 @@ export const wall = () => {
 
       containerPost.append(textPost, imageLike, btnDelete, btnEdit);
 
+  
       // Borrar post
       btnDelete.addEventListener('click', ({target: {dataset}}) => {
         deletePost(dataset.id);
@@ -61,7 +62,12 @@ export const wall = () => {
         id = doc.id;
         // buttonPublish.innerText = 'Actualizar';
 
-      } )
+      });
+
+       // Dar like al post
+      imageLike.addEventListener('click', () =>{
+        alert("Diste like");
+      });
 
     });
   })

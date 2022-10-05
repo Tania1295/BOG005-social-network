@@ -1,4 +1,3 @@
-import { auth, onAuthStateChanged } from '../lib/firebase.js';
 import { welcome } from './components/welcome.js';
 import { login } from './components/login.js';
 import { register } from './components/register.js';
@@ -25,18 +24,5 @@ window.onpopstate = () => onNavigate(window.location.pathname);
 
 window.addEventListener("load", () => onNavigate(window.location.pathname))
 
-onAuthStateChanged(auth, (user) => {
-  console.log("2 veces");
-  if (user)  {
-    // const nameDisplay = document.querySelector(".nameUser");
-    // userHdos.textContent = user.displayName;
-    window.user = user;
-    console.log(user);
-    onNavigate("/wall");
-    
-  } else {
-    console.log('No User');
-    // onNavigate("/")
-  }
-}); 
+
 export { onNavigate };
