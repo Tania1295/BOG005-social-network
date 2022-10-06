@@ -56,13 +56,3 @@ describe("Should test button Login", () => {
 
 
 
-
-describe('welcome', () => {
-  it('Check sign with Google', () => {
-    const view = welcome();
-    const buttonLoginGoogle = view.querySelector('.buttonGoogle');
-    buttonLoginGoogle.addEventListener('click');
-    console.log(buttonLoginGoogle);
-    expect(popUp).toBeCalled();
-  });
-});

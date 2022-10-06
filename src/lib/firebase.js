@@ -26,7 +26,7 @@ const popUp = () => signInWithPopup(auth, provider);
 const profile = (user, displayName) => updateProfile(user, { displayName });
 
 const dataFirestore = getFirestore(app);
-const savePost = (post) => addDoc(collection(dataFirestore, "PostWall"), {post:post});
+const savePost = (post) => addDoc(collection(dataFirestore, "PostWall"), {post:post, like: false});
 const getPost = () => getDocs(collection(dataFirestore, "PostWall"));
 const onGetData = (callback) => onSnapshot(collection(dataFirestore, "PostWall"),callback);
 const deletePost = id => deleteDoc(doc(dataFirestore, "PostWall", id));
@@ -36,15 +36,13 @@ const updtateEdit = (id, newPost) => updateDoc(doc(dataFirestore, "PostWall", id
 
 onAuthStateChanged(auth, (user) => {
   if (user)  {
-    // const nameDisplay = document.querySelector(".nameUser");
-    // userHdos.textContent = user.displayName;
     window.user = user;
     console.log(user);
     onNavigate("/wall");
     
   } else {
     console.log('No User');
-    // onNavigate("/")
+     onNavigate("/")
   }
 }); 
 

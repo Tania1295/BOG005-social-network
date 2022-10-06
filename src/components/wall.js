@@ -15,32 +15,38 @@ export const wall = () => {
   const containerPost = document.createElement("article");
   containerPost.className = 'containerPost';
 
+  // Sección de los post
   let editStatus = false;
   let id = ""; 
 
   onGetData((querySnapshot) => {
-    
-    containerPost.innerHTML = ""; 
+      containerPost.innerHTML = ""; 
 
     querySnapshot.forEach((doc) => {
       const textPost = document.createElement("p");
       textPost.className = "publishPost";
       textPost.textContent = doc.data().post;
-
+      // Like
       const imageLike = document.createElement("img");
       imageLike.src = './img/iconomegusta.png';
       imageLike.alt = 'Like';
       imageLike.className = 'imageLike';
-
+      imageLike.setAttribute('data', doc.id);
+      imageLike.setAttribute('like', doc.data().like);
+      if (doc.data().like == true) {
+        imageLike.style.backgroundColor = 'fuchsia';
+      }
+      // Eliminar
       const btnDelete = document.createElement("button");
       btnDelete.textContent = "Eliminar";
       btnDelete.setAttribute("data-id", doc.id);
       btnDelete.className = "btnDelete" ;
-
+      // Editar
       const btnEdit = document.createElement("button");
       btnEdit.textContent = "Editar";
       btnEdit.setAttribute("data-id", doc.id);
       btnEdit.className = "btnEdit" ;
+      
 
       containerPost.append(textPost, imageLike, btnDelete, btnEdit);
 
@@ -49,7 +55,6 @@ export const wall = () => {
       btnDelete.addEventListener('click', ({target: {dataset}}) => {
         deletePost(dataset.id);
       })
-
 
       // Editar post
       btnEdit.addEventListener('click', e =>{
@@ -60,14 +65,17 @@ export const wall = () => {
 
         editStatus = true;  // para saber si esta actualizando el post.
         id = doc.id;
-        // buttonPublish.innerText = 'Actualizar';
-
       });
 
        // Dar like al post
-      imageLike.addEventListener('click', () =>{
-        alert("Diste like");
-      });
+       const btnsLike = containerPost.querySelectorAll('.imageLike');
+        btnsLike.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+        const id = event.target.attributes.data.value;
+        const like = event.target.attributes.like.value == "true" ? false : true;
+        updtateEdit(id, { like: like });
+      })
+    });
 
     });
   })
@@ -132,7 +140,7 @@ export const wall = () => {
       editStatus = false;
     }
 
-    
+    messageText.value = "";
     
   });
 
