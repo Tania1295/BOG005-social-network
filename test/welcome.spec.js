@@ -1,5 +1,5 @@
 import { onNavigate } from "../src/main.js";
-import { welcome} from "../src/components/welcome.js";
+import { welcome } from "../src/components/welcome.js";
 import { popUp } from "../src/lib/firebase.js"
 
 jest.mock('../src/lib/firebase.js')
@@ -26,7 +26,7 @@ describe("Should test welcome view", () => {
     })
 })
 
-// Inicia segundo test
+// Segundo test
 const mockWelcomeButton = () => {
     const container = document.createElement('section');
     const buttonLogin = document.createElement('button');
@@ -52,17 +52,19 @@ describe("Should test button Login", () => {
     })
 })
 
+// Tercer test
+test('Exist the button Sign Up', () => {
+    const element = welcome();
+    const button = element.querySelector('.buttonSignUp');
+    expect(button).not.toBeNull()
+})
 
-
-
-
-
+// Cuarto test
 describe('welcome', () => {
-  it('Check sign with Google', () => {
-    const view = welcome();
-    const buttonLoginGoogle = view.querySelector('.buttonGoogle');
-    buttonLoginGoogle.addEventListener('click');
-    console.log(buttonLoginGoogle);
-    expect(popUp).toBeCalled();
-  });
+    it('Check sign in with Google button', () => {
+        const page = welcome();
+        const buttonLoginGoogle = page.querySelector('.buttonGoogle');
+        buttonLoginGoogle.addEventListener(new Event('click'));
+        expect(popUp).toBeCalled();
+    });
 });
