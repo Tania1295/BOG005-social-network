@@ -1,4 +1,5 @@
 import { onNavigate } from "../../src/main.js";
+import { register } from "../../src/components/register.js";
 
 jest.mock('../../src/lib/firebase.js')
 
@@ -48,4 +49,18 @@ describe("Should test button Register", () => {
         expect(document.getElementById('root').textContent).toBeDefined();
         expect(mockRouteRegister).not.toBeNull();
     })
+})
+
+test('Registes is not Null', () => {
+    expect(register).not.toBeNull();
+})
+
+test('Register is a Function', () => {
+    expect(typeof register).toBe('function')
+})
+
+test('Exist the button Sign', () => {
+    const element = register();
+    const button = element.getElementsByClassName('.buttonSign');
+    expect(button).not.toBeNull();
 })
