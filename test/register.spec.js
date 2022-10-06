@@ -24,7 +24,7 @@ describe("Should test register view", () => {
     })
 })
 
-// Inicia segundo test
+// Segundo test
 const mockRegisterButton = () => {
     const container = document.createElement('section');
     const buttonSign = document.createElement('button');
