@@ -1,0 +1,441 @@
+/* color1: #F77E21
+    color2: #100720
+    color3: #D9D9D9 */
+#root {
+    background-color: #F77E21;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+html,
+body {
+    height: 100vh;
+    margin: 0px;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.title {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 900;
+    font-size: 3.2em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+}
+
+.loginContainer>p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.formRegister>p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: medium;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.slogan {
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 88%;
+    margin: 10px 0 30px;
+}
+
+input {
+    width: 22em;
+    padding: 1em;
+    border-radius: 0.5em;
+    border-color: rgba(97, 96, 96, 0.432);
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    margin: 1em;
+    padding: 1.1em 2.3em;
+    background-color: #ffff;
+    border-radius: 0.4em;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 510;
+    font-size: 1em;
+    cursor: pointer;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
+}
+
+.buttonBack {
+    background: url(../src/img/flecha-izquierda.png);
+}
+
+/* Welcome */
+.logoRed {
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.buttonSignUp {
+    display: inline-block;
+    list-style-type: none;
+    background-color: white;
+    border: 0;
+    font-size: medium;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+}
+
+.buttonSignUp:hover {
+    color: #F77E21;
+    border-bottom: 0.1em solid #F77E21;
+    cursor: pointer;
+}
+
+.registerText {
+    display: inline-block;
+}
+
+.imageGoogle {
+    height: 20px;
+    width: 20px;
+    padding: 0.8em;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+.imageBack {
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    display: inline-block;
+    background-color: #fff;
+}
+
+#textGoogle {
+    display: inline-block;
+    margin: 0.7em;
+    padding: 0;
+}
+
+#textBackButton {
+    display: inline-block;
+    margin: 0.3em;
+    padding: 0;
+    font-size: 0.8em;
+    font-weight: 510;
+}
+
+#buttonGoogle {
+    background-color: #ffff;
+    border-radius: 0.4em;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 510;
+    font-size: 1em;
+    padding: 0.3em;
+    margin: 1em;
+    cursor: pointer;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
+}
+
+.buttonBack {
+    background-color: #ffff;
+    border: none;
+    cursor: pointer;
+}
+
+#buttonGoogle:hover {
+    background-color: #4285F4;
+    color: #fff;
+}
+
+/* este es el div que contiene la imagen y el texto de Google! */
+div {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Login */
+#root>.containerBackgroundEnd {
+    height: 130vh;
+    width: 100vw;
+    background-color: #F77E21;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBackground {
+    align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+/* este es el div de form */
+.loginContainer {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 10px;
+    flex-grow: 1;
+    border: none;
+    flex-basis: 15%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 0px #333333b7;
+}
+
+.containerLogin {
+    display: flex;
+    max-width: 500px;
+    min-width: 250px;
+    max-height: 80%;
+    min-height: 30%;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 150px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 10px;
+    /*  background-image: url(./img/Logo-red-social.png); 
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center; */
+}
+
+.buttonEnter {
+    display: flex;
+    margin: 1em;
+    padding: 0.9em;
+    background-color: #ffff;
+    border-radius: 0.4em;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 510;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: solid rgba(31, 31, 31, 0.473) 1px;
+}
+
+#errorText {
+    background-color: #f34a4a;
+    color: #fff;
+}
+
+#formLogin {
+    justify-content: center;
+}
+
+.containerWelcome {
+    background-color: #F77E21;
+    align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+#containerTitle {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 40%;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 200px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 20px;
+}
+
+#containerBody {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3%;
+    flex-grow: 1;
+    box-shadow: 4px 4px 10px 0px #333333b7;
+    border: none;
+    flex-basis: 200px;
+}
+
+/* Register */
+.containerRegister {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 40%;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 200px;
+    flex-grow: 1;
+    justify-content: center;
+    margin: 20px;
+}
+
+.containerItemRegister {
+    background-color: #F77E21;
+    align-items: center;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+.formRegister {
+    display: flex;
+    max-width: 500px;
+    min-width: 350px;
+    max-height: 80%;
+    min-height: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 10px;
+    flex-grow: 1;
+    border: none;
+    flex-basis: 15%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 0px #333333b7;
+}
+
+/* Wall */
+#containerWall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.headerWall {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.logoWall {
+    height: 2cm;
+    width: 2cm;
+}
+
+.buttonClose {
+    background: #ffff;
+    height: 2pc;
+    width: 4pc;
+    margin: 20px 15px 0 20pc;
+    border: none;
+    cursor: pointer;
+}
+
+.nameUser {
+    margin-top: 22px;
+    margin-left: 5pc;
+}
+
+.sectionPost {
+    background-color: beige;
+    padding: 5pc auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textUser {
+    margin-top: 2em;
+    width: 8cm;
+    padding: 50px;
+    padding-top: 3px;
+    padding-left: 5px;
+    border-radius: 3%;
+    font-style: italic;
+}
+
+.buttonPublish {
+    list-style-type: none;
+    background-color: white;
+    border: 0;
+    font-size: medium;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    border-color: grays;
+    border-radius: 2em;
+}
+
+.containerPost {
+    background-color: #fff;
+    border-radius: 1.6em;
+    margin-top: 2.5em;
+    padding: 0 3em;
+}
+
+.imageLike {
+    margin: 1em;
+}
+
+.publishPost{
+    margin-top: 2.5em;
+    padding: 0 3em;
+}
