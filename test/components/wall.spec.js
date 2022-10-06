@@ -1,7 +1,7 @@
-import { wall } from "../src/components/wall.js";
-import { onGetData } from "../src/lib/firebase.js"
+import { wall } from "../../src/components/wall.js";
+import { onGetData } from "../../src/lib/firebase.js";
 
-jest.mock('../src/lib/firebase.js')
+jest.mock('../../src/lib/firebase.js')
 
 test('onGetData is not Null', () => {
     expect(onGetData).not.toBeNull();

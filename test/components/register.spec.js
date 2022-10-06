@@ -1,6 +1,6 @@
-import { onNavigate } from "../src/main";
+import { onNavigate } from "../../src/main.js";
 
-jest.mock('../src/lib/firebase.js')
+jest.mock('../../src/lib/firebase.js')
 
 const mockRegister = () => {
     const container = document.createElement('section');

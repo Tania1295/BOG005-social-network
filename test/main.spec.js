@@ -1,4 +1,4 @@
-import { onNavigate } from "../src/main";
+import { onNavigate } from "../src/main.js";
 
 /*eslint-diabled next line */
 jest.mock('../src/lib/firebase.js')

@@ -1,8 +1,8 @@
-import { onNavigate } from "../src/main.js";
-import { welcome } from "../src/components/welcome.js";
-import { popUp } from "../src/lib/firebase.js"
+import { onNavigate } from "../../src/main.js";
+import { welcome } from "../../src/components/welcome.js";
+import { popUp } from "../../src/lib/firebase.js";
 
-jest.mock('../src/lib/firebase.js')
+jest.mock('../../src/lib/firebase.js')
 
 const mockWelcome = () => {
     const container = document.createElement('section');
@@ -63,8 +63,9 @@ test('Exist the button Sign Up', () => {
 describe('welcome', () => {
     it('Check sign in with Google button', () => {
         const page = welcome();
-        const buttonLoginGoogle = page.querySelector('.buttonGoogle');
-        buttonLoginGoogle.addEventListener(new Event('click'));
+        const buttonLoginGoogle = page.querySelector('#buttonGoogle');
+        //buttonLoginGoogle.addEventListener(new Event('click'));
+        buttonLoginGoogle.click();
         expect(popUp).toBeCalled();
     });
 });
