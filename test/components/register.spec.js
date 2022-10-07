@@ -1,12 +1,12 @@
-import { onNavigate } from "../../src/main.js";
-import { register } from "../../src/components/register.js";
+import { onNavigate } from '../../src/main.js';
+import { register } from '../../src/components/register.js';
 
 jest.mock('../../src/lib/firebase.js')
 
 const mockRegister = () => {
     const container = document.createElement('section');
     const title = document.createElement('h1');
-    title.textContent = "Hola Register";
+    title.textContent = 'Hola Register';
 
     container.appendChild(title);
 
@@ -17,11 +17,11 @@ const mockRoute = {
     '/register': mockRegister,
 }
 
-describe("Should test register view", () => {
-    it("Call mockRegister", () => {
-        document.body.innerHTML = `<section id="root"></section>`
+describe('Should test register view', () => {
+    it('Call mockRegister', () => {
+        document.body.innerHTML = `<section id='root'></section>`
         onNavigate('/register', mockRoute)
-        expect(document.getElementById('root').textContent).toEqual('Hola Register')
+        expect(document.getElementById('root').textContent).toEqual('Hola Register');
     })
 })
 
@@ -41,9 +41,9 @@ const mockRouteRegister = {
     '/Register': mockRegisterButton,
 }
 
-describe("Should test button Register", () => {
-    it("Call mockRegisterButton", () => {
-        document.body.innerHTML = `<section id="root"></section>`
+describe('Should test button Register', () => {
+    it('Call mockRegisterButton', () => {
+        document.body.innerHTML = `<section id='root'></section>`
         onNavigate('/Register', mockRouteRegister)
         expect(document.getElementById('root').textContent).toEqual('Registrarme');
         expect(document.getElementById('root').textContent).toBeDefined();

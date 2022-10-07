@@ -19,7 +19,7 @@ export const wall = () => {
 
   // Sección de los post
   let editStatus = false;
-  let id = "";
+  let id = '';
 
   onGetData((querySnapshot) => {
     sectionPost.innerHTML = '';
@@ -29,7 +29,7 @@ export const wall = () => {
       textPost.className = 'publishPost';
       textPost.textContent = doc.data().post;
       // Like
-      const imageLike = document.createElement("img");
+      const imageLike = document.createElement('img');
       imageLike.src = './img/iconomegusta.png';
       imageLike.alt = 'Like';
       imageLike.className = 'imageLike';
@@ -39,15 +39,15 @@ export const wall = () => {
         imageLike.style.backgroundColor = 'fuchsia';
       }
       // Eliminar
-      const btnDelete = document.createElement("button");
-      btnDelete.textContent = "Eliminar";
-      btnDelete.setAttribute("data-id", doc.id);
-      btnDelete.className = "btnDelete";
+      const btnDelete = document.createElement('button');
+      btnDelete.textContent = 'Eliminar';
+      btnDelete.setAttribute('data-id', doc.id);
+      btnDelete.className = 'btnDelete';
       // Editar
-      const btnEdit = document.createElement("button");
-      btnEdit.textContent = "Editar";
-      btnEdit.setAttribute("data-id", doc.id);
-      btnEdit.className = "btnEdit";
+      const btnEdit = document.createElement('button');
+      btnEdit.textContent = 'Editar';
+      btnEdit.setAttribute('data-id', doc.id);
+      btnEdit.className = 'btnEdit';
 
       sectionPost.append(textPost, imageLike, btnDelete, btnEdit);
 
@@ -72,11 +72,10 @@ export const wall = () => {
       btnsLike.forEach(btn => {
         btn.addEventListener('click', (event) => {
           const id = event.target.attributes.data.value;
-          const like = event.target.attributes.like.value == "true" ? false : true;
+          const like = event.target.attributes.like.value == 'true' ? false : true;
           updtateEdit(id, { like: like });
         })
       });
-
     });
   })
 
@@ -87,12 +86,12 @@ export const wall = () => {
 
   const userNameProfile = document.createElement('h1');
   userNameProfile.className = 'nameUser';
-  userNameProfile.textContent = window.user != undefined ? window.user.displayName : "";
+  userNameProfile.textContent = window.user != undefined ? window.user.displayName : '';
 
   const buttonClose = document.createElement('button');
   buttonClose.className = 'buttonClose';
   const divButtonBack = document.createElement('div');
-  divButtonBack.className = "divButtonBack";
+  divButtonBack.className = 'divButtonBack';
   const textBackButton = document.createElement('p');
   textBackButton.textContent = 'Cerrar Sesión';
   textBackButton.setAttribute('id', 'textBackButton');
@@ -123,10 +122,10 @@ export const wall = () => {
     });
   });
 
-  buttonPublish.addEventListener("click", () => {
+  buttonPublish.addEventListener('click', () => {
     const post = messageText.value;
     console.log(post);
-    // condicional para actualizar y guardar un post.
+    // Condicional para actualizar y guardar un post.
     if (!editStatus) {
       savePost(post);
 
@@ -137,9 +136,7 @@ export const wall = () => {
 
         editStatus = false;
     }
-
-    messageText.value = "";
-
+    messageText.value = '';
   });
 
   header.append(imageWall, userNameProfile, buttonClose);

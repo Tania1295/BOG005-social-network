@@ -28,7 +28,7 @@ export const login = () => {
   buttonEnter.className = 'buttonEnter';
 
   const divButtonBack = document.createElement('div');
-  divButtonBack.className = "divButtonBack";
+  divButtonBack.className = 'divButtonBack';
 
   const textBackButton = document.createElement('p');
   textBackButton.textContent = 'Regresar';
