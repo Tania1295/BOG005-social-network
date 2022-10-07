@@ -70,3 +70,5 @@ Para este proyecto se implementó lo siguiente:
 * Jest (Test Unitarios).
 
 ## Colaboradoras
+
+[Camila Fonseca](https://github.com/Camilaf19) | [Tania Infante](https://github.com/Tania1295) | [Yeimmy Lopez](https://github.com/VanesaLo)

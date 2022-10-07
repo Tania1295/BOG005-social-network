@@ -5,5 +5,5 @@ export default {
   storageBucket: 'travelers-e8b5a.appspot.com',
   messagingSenderId: '532240998590',
   appId: '1:532240998590:web:3ebe2040c59dda333dbeef',
-  measurementId: 'G-KZ49QE41R7',
+  measurementId: 'G-KZ49QE41R7'
 };
