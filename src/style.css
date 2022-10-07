@@ -340,7 +340,7 @@ div {
     flex-grow: 1;
     border: none;
     flex-basis: 15%;
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 4px 4px 10px 0px #333333b7;
 }
@@ -397,7 +397,6 @@ div {
 
 .sectionPost {
     background-color: beige;
-    padding: 5pc auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -429,13 +428,39 @@ div {
     border-radius: 1.6em;
     margin-top: 2.5em;
     padding: 0 3em;
+    display: flex;
 }
 
 .imageLike {
     margin: 1em;
 }
 
-.publishPost{
+.publishPost {
     margin-top: 2.5em;
     padding: 0 3em;
+}
+
+.sectionAllPost {
+    flex-direction: column;
+}
+
+.btnEdit {
+    height: 25px;
+}
+
+.btnDelete {
+    background: #ffff;
+    height: 2pc;
+    width: 4pc;
+    margin: 20px 15px 0 20pc;
+    border: none;
+    cursor: pointer;
+}
+
+.imgButtoDelete {
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    display: inline-block;
+    background-color: #fff;
 }
