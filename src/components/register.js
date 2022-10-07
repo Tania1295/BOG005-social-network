@@ -33,7 +33,7 @@ export const register = () => {
   buttonBack.className = 'buttonBack';
 
   const divButtonBack = document.createElement('div');
-  divButtonBack.className = "divButtonBack";
+  divButtonBack.className = 'divButtonBack';
 
   const textBackButton = document.createElement('p');
   textBackButton.textContent = 'Regresar';

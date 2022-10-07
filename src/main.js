@@ -22,7 +22,6 @@ const onNavigate = (pathname, paramRoutes = routes) => {
 
 window.onpopstate = () => onNavigate(window.location.pathname);
 
-window.addEventListener("load", () => onNavigate(window.location.pathname))
-
+window.addEventListener('load', () => onNavigate(window.location.pathname))
 
 export { onNavigate };

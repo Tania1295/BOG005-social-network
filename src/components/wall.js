@@ -1,7 +1,6 @@
 import { onNavigate } from '../main.js';
 import { loginOut, onGetData, savePost, deletePost, getEdit, updtateEdit } from '../lib/firebase.js';
 
-
 export const wall = () => {
   const container = document.createElement('section');
   container.setAttribute('id', 'containerWall');
@@ -11,48 +10,54 @@ export const wall = () => {
 
   const header = document.createElement('header');
   header.className = 'headerWall';
-  
-  const containerPost = document.createElement("article");
+
+  const containerPost = document.createElement('article');
   containerPost.className = 'containerPost';
 
+  const sectionPost = document.createElement('div');
+  sectionPost.className = 'sectionPost';
+
+  // Sección de los post
   let editStatus = false;
-  let id = ""; 
+  let id = '';
 
   onGetData((querySnapshot) => {
-    
-    containerPost.innerHTML = ""; 
+    sectionPost.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
-      const textPost = document.createElement("p");
-      textPost.className = "publishPost";
+      const textPost = document.createElement('p');
+      textPost.className = 'publishPost';
       textPost.textContent = doc.data().post;
-
-      const imageLike = document.createElement("img");
+      // Like
+      const imageLike = document.createElement('img');
       imageLike.src = './img/iconomegusta.png';
       imageLike.alt = 'Like';
       imageLike.className = 'imageLike';
+      imageLike.setAttribute('data', doc.id);
+      imageLike.setAttribute('like', doc.data().like);
+      if (doc.data().like == true) {
+        imageLike.style.backgroundColor = 'fuchsia';
+      }
+      // Eliminar
+      const btnDelete = document.createElement('button');
+      btnDelete.textContent = 'Eliminar';
+      btnDelete.setAttribute('data-id', doc.id);
+      btnDelete.className = 'btnDelete';
+      // Editar
+      const btnEdit = document.createElement('button');
+      btnEdit.textContent = 'Editar';
+      btnEdit.setAttribute('data-id', doc.id);
+      btnEdit.className = 'btnEdit';
 
-      const btnDelete = document.createElement("button");
-      btnDelete.textContent = "Eliminar";
-      btnDelete.setAttribute("data-id", doc.id);
-      btnDelete.className = "btnDelete" ;
+      sectionPost.append(textPost, imageLike, btnDelete, btnEdit);
 
-      const btnEdit = document.createElement("button");
-      btnEdit.textContent = "Editar";
-      btnEdit.setAttribute("data-id", doc.id);
-      btnEdit.className = "btnEdit" ;
-
-      containerPost.append(textPost, imageLike, btnDelete, btnEdit);
-
-  
       // Borrar post
-      btnDelete.addEventListener('click', ({target: {dataset}}) => {
+      btnDelete.addEventListener('click', ({ target: { dataset } }) => {
         deletePost(dataset.id);
       })
 
-
       // Editar post
-      btnEdit.addEventListener('click', e =>{
+      btnEdit.addEventListener('click', e => {
         getEdit(e.target.dataset.id);
         const post = doc.data();
 
@@ -60,34 +65,33 @@ export const wall = () => {
 
         editStatus = true;  // para saber si esta actualizando el post.
         id = doc.id;
-        // buttonPublish.innerText = 'Actualizar';
-
       });
 
-       // Dar like al post
-      imageLike.addEventListener('click', () =>{
-        alert("Diste like");
+      // Dar like al post
+      const btnsLike = containerPost.querySelectorAll('.imageLike');
+      btnsLike.forEach(btn => {
+        btn.addEventListener('click', (event) => {
+          const id = event.target.attributes.data.value;
+          const like = event.target.attributes.like.value == 'true' ? false : true;
+          updtateEdit(id, { like: like });
+        })
       });
-
     });
   })
-
 
   const imageWall = document.createElement('img');
   imageWall.src = './img/Logo-red-social.png';
   imageWall.alt = 'Imagen logo Travelers';
   imageWall.className = 'logoWall';
 
-
   const userNameProfile = document.createElement('h1');
   userNameProfile.className = 'nameUser';
-  userNameProfile.textContent = window.user!=undefined?window.user.displayName:"";
-
+  userNameProfile.textContent = window.user != undefined ? window.user.displayName : '';
 
   const buttonClose = document.createElement('button');
   buttonClose.className = 'buttonClose';
   const divButtonBack = document.createElement('div');
-  divButtonBack.className = "divButtonBack";
+  divButtonBack.className = 'divButtonBack';
   const textBackButton = document.createElement('p');
   textBackButton.textContent = 'Cerrar Sesión';
   textBackButton.setAttribute('id', 'textBackButton');
@@ -99,6 +103,7 @@ export const wall = () => {
 
   const post = document.createElement('article');
   post.className = 'sectionPost';
+
   const messageText = document.createElement('textarea');
   messageText.placeholder = 'Escribe aquí tu post';
   messageText.className = 'textUser';
@@ -117,36 +122,29 @@ export const wall = () => {
     });
   });
 
-  
-  buttonPublish.addEventListener("click", () => {
+  buttonPublish.addEventListener('click', () => {
     const post = messageText.value;
     console.log(post);
-    // condicional para actualizar y guardar un post.
+    // Condicional para actualizar y guardar un post.
     if (!editStatus) {
       savePost(post);
-       
-    } else{
+
+    } else {
       updtateEdit(id, {
-        post}),
+        post
+      }),
 
-      editStatus = false;
+        editStatus = false;
     }
-
-    
-    
+    messageText.value = '';
   });
-
 
   header.append(imageWall, userNameProfile, buttonClose);
   container.append(header, messageText, errorText, buttonPublish, containerPost);
+  containerPost.appendChild(sectionPost);
   divButtonBack.append(imageBack, textBackButton);
   buttonClose.appendChild(divButtonBack);
   mainWall.append(header, container);
 
-
- 
   return mainWall;
 };
-
-
-
