@@ -12,15 +12,15 @@ const routes = {
 
 const onNavigate = (pathname, paramRoutes = routes) => {
   const rootSection = document.getElementById('root');
-  window.history.pushState(
+  /* window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
-  );
+  ); */
   rootSection.replaceChildren(paramRoutes[pathname]());
 };
 
-window.onpopstate = () => onNavigate(window.location.pathname);
+/* window.onpopstate = () => onNavigate(window.location.pathname); */
 
 window.addEventListener('load', () => onNavigate(window.location.pathname))
 
