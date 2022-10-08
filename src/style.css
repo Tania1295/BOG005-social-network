@@ -346,11 +346,44 @@ div {
 }
 
 /* Wall */
+.mainWall {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background: rgb(247,126,33);
+    background: linear-gradient(202deg, rgba(247,126,33,1) 22%, rgba(242,151,81,1) 46%, rgba(241,105,0,1) 66%, rgba(245,159,93,1) 95%);
+}
+
 #containerWall {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex-grow: 1;
+    flex-basis: 8%;
+    flex-grow: 1;
+    flex-basis: 15%;
+    margin-top: -1pc;
+}
+
+.containerPost {
+    background-color: rgba(255, 255, 255, 0.918);
+    border-radius: 1.6em;
+    margin-top: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; 
+    padding: 1pc 1pc;
+}
+
+.sectionPost {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    flex-grow: 1;  
+    padding: 2pc; 
 }
 
 @keyframes moveInBottom {
@@ -366,54 +399,54 @@ div {
 }
 
 .headerWall {
-    height: 15vh;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background: #fff;
-    border-bottom-left-radius: 10%;
-    border-bottom-right-radius: 10%;
 }
+
 
 .logoWall {
     height: 2cm;
     width: 2cm;
+    margin-left: 1pc;
 }
 
 .buttonClose {
     background: #ffff;
-    height: 2pc;
-    width: 4pc;
-    margin: 20px 15px 0 20pc;
+    height: 4pc;
+    width: 6pc;
+    margin-right: 1pc;
     border: none;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .nameUser {
     margin-top: 22px;
-    margin-left: 5pc;
+    margin-left: 1pc;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
 }
 
-.sectionPost {
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 .textUser {
-    margin-top: 2em;
-    width: 8cm;
+    margin: 4%;
+    height: 60px;
+    width: 220px;
     padding: 50px;
-    padding-top: 3px;
-    padding-left: 5px;
-    border-radius: 3%;
+    padding: 10px 10px 10px 10px;
+    border-radius: 8%;
+    font-size: 15px;
     font-style: italic;
 }
 
 .buttonPublish {
     list-style-type: none;
+    margin-top: -1pc;
     background-color: white;
     border: 0;
     font-size: medium;
@@ -423,44 +456,51 @@ div {
     border-radius: 2em;
 }
 
-.containerPost {
-    background-color: #fff;
-    border-radius: 1.6em;
-    margin-top: 2.5em;
-    padding: 0 3em;
-    display: flex;
-}
-
-.imageLike {
-    margin: 1em;
-}
-
 .publishPost {
-    margin-top: 2.5em;
-    padding: 0 3em;
-}
-
-.sectionAllPost {
-    flex-direction: column;
-}
-
-.btnEdit {
-    height: 25px;
+    margin-top: 1pc;
+    width: 10pc;
+    padding: 1pc;
+    border-style: groove;
+    border-radius: 10%;
 }
 
 .btnDelete {
-    background: #ffff;
+    background: #f59a55bb;
     height: 2pc;
     width: 4pc;
-    margin: 20px 15px 0 20pc;
     border: none;
     cursor: pointer;
+    margin-top: -2pc;
+    margin-left: -3pc;
+    border-radius: 15%;
+    flex-grow: 1; 
+    align-items: center;
+    justify-items: center;
+    font-family: 'Work Sans', sans-serif;
 }
 
-.imgButtoDelete {
-    height: 15px;
-    width: 15px;
-    padding: 0;
-    display: inline-block;
-    background-color: #fff;
+.btnEdit {
+    background: #f59a55bb;
+    height: 2pc;
+    width: 4pc;
+    margin-top: -2pc;
+    margin-left: 6pc;
+    border: none;
+    cursor: pointer;
+    border-radius: 15%;
+    flex-grow: 1; 
+    align-items: center;
+    justify-items: center;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.imageLike {
+    height: 2pc;
+    width: 2pc;
+    border: none;
+    cursor: pointer;
+    margin-left: -10pc;
+    flex-grow: 1; 
+    align-items: center;
+    justify-items: center;
 }

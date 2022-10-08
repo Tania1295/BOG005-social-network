@@ -13,7 +13,7 @@ export const wall = () => {
 
   const containerPost = document.createElement('article');
   containerPost.className = 'containerPost';
-
+  
   const sectionPost = document.createElement('div');
   sectionPost.className = 'sectionPost';
 
@@ -30,13 +30,13 @@ export const wall = () => {
       textPost.textContent = doc.data().post;
       // Like
       const imageLike = document.createElement('img');
-      imageLike.src = './img/iconomegusta.png';
+      imageLike.src = './img/corazon.png';
       imageLike.alt = 'Like';
       imageLike.className = 'imageLike';
       imageLike.setAttribute('data', doc.id);
       imageLike.setAttribute('like', doc.data().like);
       if (doc.data().like == true) {
-        imageLike.style.backgroundColor = 'fuchsia';
+        imageLike.style.backgroundColor = 'tomato';
       }
       // Eliminar
       const btnDelete = document.createElement('button');
@@ -50,6 +50,7 @@ export const wall = () => {
       btnEdit.className = 'btnEdit';
 
       sectionPost.append(textPost, imageLike, btnDelete, btnEdit);
+      
 
       // Borrar post
       btnDelete.addEventListener('click', ({ target: { dataset } }) => {
@@ -140,8 +141,8 @@ export const wall = () => {
   });
 
   header.append(imageWall, userNameProfile, buttonClose);
-  container.append(header, messageText, errorText, buttonPublish, containerPost);
-  containerPost.appendChild(sectionPost);
+  container.append(header, containerPost);
+  containerPost.append(messageText, errorText, buttonPublish, sectionPost);
   divButtonBack.append(imageBack, textBackButton);
   buttonClose.appendChild(divButtonBack);
   mainWall.append(header, container);
